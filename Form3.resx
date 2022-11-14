@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="label81.Text" xml:space="preserve">
+    <value>1. 如何查看刀的注册名？
+找到该模组对应的语言文件，如中文的为 "zh_CN.lang"，打开后，找到所需要查看的拔刀剑，会看到格式为"item.xxx.name" 的名称，而中间的 "xxx" 即为我们所需要的注册名；
+
+2. 如何查看刀的模型文件及材质？
+以拔刀剑原版模组为例：打开压缩包，依次点击 assets → flammpfeil.slashblade → model，找到对应的文件夹，打开之后，会看到后缀为 "obj" 的文件，这个就是这把刀的模型文件，而该刀的贴图是 "png" 文件。输入模型路径时，应把 "model" 去掉，且不需要保留文件后缀，如某个路径为："model/xxx/model.obj"，则应保留的部分为："xxx/model"，无论 "xxx" 所表示的模型路径有多长，都需要填进去。对于其贴图，方法也是如此。</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>3. 在不安装其它附属模组的情况下，如何使用其它模组的模型和材质贴图？
+同样找到该模组的 "model" 文件夹，把里面的东西直接复制到拔刀剑Mod的 "model" 文件夹里面，为了防止混淆，可以另外设置一个文件夹用来加以区分，填写自定义模型和贴图时，也可以按照上述方法来填写；
+
+4. 没有找到我需要的SA或SE技能，该如何查看自己所安装Mod中的技能名称代码？
+SA代码为一个整数，只有在该Mod的源代码中才能找到，而且存放的文件也各不相同，可能有的会有统一的一个文件用来注册SA，而有的可能会给每把刀都设置不同的SA，要涉及反编译的操作，方法相对复杂；对于SE技能的代码，可以直接在该Mod的语言文件中找到，格式为 "slashblade.seffect.name.xxx" ，而这个 "xxx" 就是该SE技能的名称。注意：填写的时候要区分大小写，有下划线的也要带上，否则会无效。</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>在自定义拔刀剑过程中的注意事项：
+(1) 在基础设定中，会看到 "封刀"、"妖刀" 和 "显示为妖刀" 这三个比较关键的选项，如果三个全部都勾选，则生成的拔刀剑只会显示为 "封刀"，会继承 "封刀" 的所有属性，无法添加和使用任何技能，如果只勾选 "妖刀"，并且添加了附魔，在生成的拔刀剑中，虽然可以释放技能，具有妖刀的全部效果，字体也是妖刀的紫红色，但是刀的类型却会显示为 "印"，并且无法看到自己设置的技能，只有同时勾选了 "妖刀" 和 "显示为妖刀" 这两个选项，生成的拔刀剑才会显示为妖刀，并且能够看到自己设置的技能 (不过正经人谁会选择封刀啊~手动滑稽)；
+
+(2) 由于附魔的种类过多，在这里不方便集中所有的附魔，故只提供了原版的附魔属性，且1.12.2之后的附魔均未收录，如果需要添加其它的附魔，可在该Mod的百科中自行查找它的相关信息 (推荐中文百科)；
+</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>注意：
+(1) 不一定所有的材质都只有一个模型，有的模型可供多个材质贴图使用。此外，用于存放模型文件的 "model" 文件夹也不一定是放在上述的路径中，不同的模组有不同的存放路径，但一定都在 "assets" 文件夹中；
+
+(2) 由于是自定义拔刀剑，所以设置外观时，只是会显示这把刀的外观，并不会继承这把刀原有的各种属性，生成之后的刀只会继承大太刀的全部属性，且如果不设置名字，默认名称均为 "大太刀「」"；
+
+(3) 设置的贴图要与模型相适应，否则拿在手上会显示出一些很奇怪的模型，但是这个只能一个个地去试，有的模型和贴图是放在一起的，有的不一定，甚至用的是别的模组里面的贴图，但大部分都是可以放在一起的；
+
+(4)在部分模组中，一把刀的模型可能设置了很多的贴图，本程序中设置的只是这些刀默认的材质贴图，如需其它贴图，可以在生成的代码中自行修改。</value>
+  </data>
+</root>
