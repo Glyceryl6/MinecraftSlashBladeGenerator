@@ -12,25 +12,21 @@ using System.Globalization;
 using System.Resources;
 using System.Runtime.CompilerServices;
 
-namespace MinecraftSlashBladeGenerator.Properties
-{
+namespace MinecraftSlashBladeGenerator.Properties {
   [GeneratedCode("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
   [DebuggerNonUserCode]
   [CompilerGenerated]
-  internal class Resources
-  {
+  internal class Resources {
+    
     private static ResourceManager resourceMan;
     private static CultureInfo resourceCulture;
 
-    internal Resources()
-    {
+    internal Resources() {
     }
 
     [EditorBrowsable(EditorBrowsableState.Advanced)]
-    internal static ResourceManager ResourceManager
-    {
-      get
-      {
+    internal static ResourceManager ResourceManager {
+      get {
         if (MinecraftSlashBladeGenerator.Properties.Resources.resourceMan == null)
           MinecraftSlashBladeGenerator.Properties.Resources.resourceMan = new ResourceManager("MinecraftSlashBladeGenerator.Properties.Resources", typeof (MinecraftSlashBladeGenerator.Properties.Resources).Assembly);
         return MinecraftSlashBladeGenerator.Properties.Resources.resourceMan;
@@ -38,8 +34,7 @@ namespace MinecraftSlashBladeGenerator.Properties
     }
 
     [EditorBrowsable(EditorBrowsableState.Advanced)]
-    internal static CultureInfo Culture
-    {
+    internal static CultureInfo Culture {
       get => MinecraftSlashBladeGenerator.Properties.Resources.resourceCulture;
       set => MinecraftSlashBladeGenerator.Properties.Resources.resourceCulture = value;
     }
