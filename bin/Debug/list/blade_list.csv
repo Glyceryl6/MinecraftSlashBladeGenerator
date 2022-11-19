@@ -13,7 +13,7 @@
 散华,拔刀剑 (Slash Blade),purple,flammpfeil.slashblade.named.sange,named/sange/sange,named/sange/sange
 魔剑「阎魔刀」,拔刀剑 (Slash Blade),purple,flammpfeil.slashblade.named.yamato,named/yamato,named/yamato
 折断的阎魔刀,拔刀剑 (Slash Blade),purple,flammpfeil.slashblade.named.yamato.broken,named/yamato,named/yamato
-夜叉,拔刀剑 (Slash Blade),purple,flammpfeil.slashblade.named.yashatrue,named/yasha/yashaTrue,named/yasha/yasha
+夜叉 ,拔刀剑 (Slash Blade),purple,flammpfeil.slashblade.named.yashatrue,named/yasha/yashaTrue,named/yasha/yasha
 夜叉,拔刀剑 (Slash Blade),purple,flammpfeil.slashblade.named.yasha,named/yasha/yasha,named/yasha/yasha
 结月刀「付丧」,拔刀剑 (Slash Blade),purple,flammpfeil.slashblade.named.yuzukitukumo,named/agito,named/a_tukumo
 木刀「铁刀木」,拔刀剑 (Slash Blade),purple,flammpfeil.slashblade.named.tagayasan,blade,named/tagayasan
@@ -62,7 +62,7 @@
 山樱文月,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.yamazakura.fumizuki,named/yamazakura/fumizuki,named/yamazakura/yamazakura_fumizuki
 山樱叶月,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.yamazakura.hazuki,named/yamazakura/model,named/yamazakura/yamazakura_hazuki
 山樱睦月「松」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.yamazakura.kadomatsu,named/yamazakura/model,named/yamazakura/yamazakura_kadomatsu
-山樱神无月「枫」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.yamazakura.kannazuki,named/yamazakura/kannazuki,named/yamazakura/yamazakura_kannazuki
+山樱神无月「枫」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.yamazakura.kannazuki,named/yamazakura/kannazuki,named/yamazakura/yamazakura_kannazuki_katura
 山樱长月「菊」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.yamazakura.kiku,named/yamazakura/model,named/yamazakura/yamazakura_kiku
 山樱「水无月」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.yamazakura.minazuki,named/yamazakura/model,named/yamazakura/yamazakura_minazuki
 山樱弥生「樱」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.yamazakura.sakura,named/yamazakura/model,named/yamazakura/yamazakura_sakura
@@ -113,6 +113,7 @@
 「V.V.V.V.V.」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.mmf.nethop,named/arthurs/model_grand,named/arthurs/texture_grand
 「祭钢刃」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.mmf.lrsoft,named/arthurs/model_irsort,named/arthurs/texture_irsoft
 日耀剑「光日」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.mmf.tartaric_acid,named/sange/sange,named/arthurs/texture_943
+自锻刀「永贞」,最后的太刀匠人 v2.1.7+,purple,flammpfeil.slashblade.named.nagasada,named/namedblade/model_stright,named/namedblade/texture_nagasada
 平庸「斗刀」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.kogawa_normal,named/namedblade/model,named/namedblade/texture_normal
 名刀「斗刀」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.kogawa_rare,named/namedblade/model,named/namedblade/texture_rare
 斗刀「孤独」,最后的太刀匠人 v2.1.6+,purple,flammpfeil.slashblade.named.kogawa_super,named/namedblade/model,named/namedblade/texture_super
@@ -229,23 +230,23 @@ XingKong的刀,仙剑阁 (Xian Jian Ge),red,flammpfeil.slashblade.xianjiange.tilsword
 铭刀「蟾宫」,遗忘之刃 (Lost Blade),navy,flammpfeil.slashblade.named.changong,named/changong/changong,named/changong/changong
 现世刀「斩月」,遗忘之刃 (Lost Blade),navy,flammpfeil.slashblade.named.zangetsu,named/zhanyue/zhanyue,named/zhanyue/zhanyue
 星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula0
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula1
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula2
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula3
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula4
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula5
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula6
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula7
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula8
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula9
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula10
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula11
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula12
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula13
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula14
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula15
-星云剑「雾鸦」,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula16
+星云剑「雾鸦」0,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula0
+星云剑「雾鸦」1,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula1
+星云剑「雾鸦」2,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula2
+星云剑「雾鸦」3,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula3
+星云剑「雾鸦」4,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula4
+星云剑「雾鸦」5,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula5
+星云剑「雾鸦」6,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula6
+星云剑「雾鸦」7,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula7
+星云剑「雾鸦」8,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula8
+星云剑「雾鸦」9,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula9
+星云剑「雾鸦」10,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula10
+星云剑「雾鸦」11,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula11
+星云剑「雾鸦」12,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula12
+星云剑「雾鸦」13,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula13
+星云剑「雾鸦」14,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula14
+星云剑「雾鸦」15,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula15
+星云剑「雾鸦」16,星云剑 (Innominandum),navy,innominandum.blade.BladeNebula,innominandum/nebula/nebula,innominandum/nebula/nebula16
 原罪「暴怒」,炼金重铸计划-七宗罪,navy,flammpfeil.slashblade.named.samael,named/samael/samael,named/samael/samael
 原罪「贪婪」,炼金重铸计划-七宗罪,navy,flammpfeil.slashblade.named.mammon,named/mammon/mammon,named/mammon/mammon
 原罪「傲慢」,炼金重铸计划-七宗罪,navy,flammpfeil.slashblade.named.lucifer,named/lucifer/lucifer,named/lucifer/lucifer
@@ -358,13 +359,13 @@ XingKong的刀,仙剑阁 (Xian Jian Ge),red,flammpfeil.slashblade.xianjiange.tilsword
 龙一「战队超人」,龙一文字 (RyuIchimonji),navy,flammpfeil.slashblade.named.senta,named/splight/senta/model,named/splight/senta/texture
 龙一「麻雀」,龙一文字 (RyuIchimonji),navy,flammpfeil.slashblade.named.young,named/splight/young/model,named/splight/young/texture_g
 龙一「青年」,龙一文字 (RyuIchimonji),navy,flammpfeil.slashblade.named.young,named/splight/young/model,named/splight/young/texture_o
-「不正经」冰之剑_火箭形,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND,named/ND/ND,named/ND/ND
-「不正经」火之剑_火箭形,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND,named/ND/ND,named/ND/ND
-「不正经」冰之剑_锋利形,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND,named/ND/ND,named/ND/ND
-「不正经」火之剑_锋利形,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND,named/ND/ND,named/ND/ND
-「不正经 · 觉醒」虚无剑,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND,named/ND/ND,named/ND/ND
-「不正经 · 淘汰」村姑,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND,named/ND/ND,named/ND/ND
-「不正经 · 淘汰」电棍,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND,named/ND/ND,named/ND/ND
+「不正经」冰之剑_火箭形,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND1,named/ND/ND12,named/ND/ND1
+「不正经」火之剑_火箭形,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND2,named/ND/ND12,named/ND/ND2
+「不正经」冰之剑_锋利形,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND3,named/ND/ND34,named/ND/ND3
+「不正经」火之剑_锋利形,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND4,named/ND/ND34,named/ND/ND4
+「不正经 · 觉醒」虚无剑,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND5,named/ND/ND5,named/ND/ND5
+「不正经 · 淘汰」村姑,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND6,named/ND/ND6,named/ND/ND6
+「不正经 · 淘汰」电棍,不正经的剑 (No Decent),navy,flammpfeil.slashblade.named.ND7,named/ND/ND7,named/ND/ND7
 塔耳塔洛斯「狱渊之锁」,尼格洛兹 (Negore Rouse),navy,flammpfeil.slashblade.named.tartarus,named/negorerouse/tartarus,named/negorerouse/tartarus
 卡俄斯「溟濛万象」,尼格洛兹 (Negore Rouse),navy,flammpfeil.slashblade.named.chaos,named/negorerouse/chaos,named/negorerouse/chaos
 安托则斯「冥光万法」,尼格洛兹 (Negore Rouse),navy,flammpfeil.slashblade.named.antauge,named/negorerouse/antauge,named/negorerouse/antauge
@@ -389,7 +390,7 @@ XingKong的刀,仙剑阁 (Xian Jian Ge),red,flammpfeil.slashblade.xianjiange.tilsword
 模造刀「无魂」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.model_Blade,blade,model/unnamed/texture_model
 模造刀「武兴」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.model_Blade_1,blade,model/unnamed/texture_model_1
 无铭刀「简装」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.namedblade_basic,named/oldtime/soda,named/oldtime/2
-古刀「乌鸟」,最后的太刀匠人 (The Last Smith),,flammpfeil.slashblade.named.birdblade,named/bird/model,named/bird/1
+古刀「乌鸟」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.birdblade,named/bird/model,named/bird/1
 名刀「尚义」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.namedblade,named/famous/1,named/famous/7
 名刀「山城」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.namedblade1,named/famous/1,named/famous/1
 名刀「江户」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.namedblade2,named/famous/1,named/famous/2
@@ -400,16 +401,16 @@ XingKong的刀,仙剑阁 (Xian Jian Ge),red,flammpfeil.slashblade.xianjiange.tilsword
 自铭「止步」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.smith_1,named/muramasa/muramasa,named/smith/smith_0
 自铭「迷途」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.smith_2,named/muramasa/muramasa,named/smith/smith_1
 自铭「平凡」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.smith_3,named/muramasa/muramasa,named/smith/smith_2
-自铭「切裂」,最后的太刀匠人 (The Last Smith),,flammpfeil.slashblade.named.smithblade_basic_colored,named/famous/1,named/heartwork/color1
-自铭「妖侟」,最后的太刀匠人 (The Last Smith),,flammpfeil.slashblade.named.smithblade_bewitched_colored,named/famous/1,named/heartwork/color5
-自铭「御敌」,最后的太刀匠人 (The Last Smith),,flammpfeil.slashblade.named.smith_knife_2,named/smith/model_knife,named/smith/texture_knife_2
-自铭「白露」,最后的太刀匠人 (The Last Smith),,flammpfeil.slashblade.named.smith_knife_1,named/smith/model_knife,named/smith/texture_knife_1
-自铭「白鞘」,最后的太刀匠人 (The Last Smith),,flammpfeil.slashblade.named.smithblade_basic,named/oldtime/soda,named/heartwork/2
-自铭「短刀」,最后的太刀匠人 (The Last Smith),,flammpfeil.slashblade.named.smith_knife,named/smith/model_knife,named/smith/texture_knife
+自铭「切裂」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.smithblade_basic_colored,named/famous/1,named/heartwork/color1
+自铭「妖侟」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.smithblade_bewitched_colored,named/famous/1,named/heartwork/color5
+自铭「御敌」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.smith_knife_2,named/smith/model_knife,named/smith/texture_knife_2
+自铭「白露」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.smith_knife_1,named/smith/model_knife,named/smith/texture_knife_1
+自铭「白鞘」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.smithblade_basic,named/oldtime/soda,named/heartwork/2
+自铭「短刀」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.smith_knife,named/smith/model_knife,named/smith/texture_knife
 妖刀「孤独」,最后的太刀匠人 (The Last Smith),navy,,,
 直刀「忍者」,最后的太刀匠人 (The Last Smith),navy,,,
 无铭「虚无」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.void_blade,named/sange/sange,named/void
-无铭「天狗作」,最后的太刀匠人 (The Last Smith),,flammpfeil.slashblade.named.birdblade_2,named/famous/1,named/bird/432
+无铭「天狗作」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.birdblade_2,named/famous/1,named/bird/432
 名刀「金纸竹光」,最后的太刀匠人 (The Last Smith),navy,flammpfeil.slashblade.named.silverbamboolight_gold,named/yamato,named/silverbamboolight/silverbamboo_gold
 杰克的武士刀,最后的太刀匠人 (The Last Smith),navy,wrap.cwm.SamuriJack,blade,named/ExparmoryBlade/CWMSamuriJack
 古老的锈刀,最后的太刀匠人 (The Last Smith),navy,,,

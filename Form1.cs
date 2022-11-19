@@ -1,6 +1,4 @@
-﻿using MinecraftSlashBladeGenerator.Properties;
-
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Drawing;
@@ -178,34 +176,26 @@ public partial class Form1 : Form {
   private void ClearTextButtonClick(object sender, EventArgs e) => ClearText(this);
 
   private void buttonCheck2_Click(object sender, EventArgs e) {
-    if (buttonCheck2.Checked) {
-      AllArmorGroupBox.Text = "装备位置: 所有";
-      ChestPlateGroupBox.Enabled = false;
-      BootsGroupBox.Enabled = false;
-      LeggingsGroupBox.Enabled = false;
-      OffHandGroupBox.Enabled = false;
-      MainHandGroupBox.Enabled = false;
-    } else {
-      AllArmorGroupBox.Text = "装备位置: 头盔";
-      ChestPlateGroupBox.Enabled = true;
-      BootsGroupBox.Enabled = true;
-      LeggingsGroupBox.Enabled = true;
-      OffHandGroupBox.Enabled = true;
-      MainHandGroupBox.Enabled = true;
-    }
+      AllArmorGroupBox.Text = buttonCheck2.Checked ? "装备位置: 所有" : "装备位置: 头盔";
+      ChestPlateGroupBox.Enabled = !buttonCheck2.Checked;
+      BootsGroupBox.Enabled = !buttonCheck2.Checked;
+      LeggingsGroupBox.Enabled = !buttonCheck2.Checked;
+      OffHandGroupBox.Enabled = !buttonCheck2.Checked;
+      MainHandGroupBox.Enabled = !buttonCheck2.Checked;
   }
 
   private void SetSlot() {
     string str1 = ",AttributeName:";
     string str2 = "{Operation:0,Amount:";
-    AllSlot = ",AttributeModifiers:[" + str2 + textBox21.Text +
-              str1 + "\"generic.attackDamage\",Name:\"attackDamage\"}," +       
+    AllSlot = ",AttributeModifiers:[" + 
+              str2 + textBox21.Text + str1 + "\"generic.attackDamage\",Name:\"attackDamage\"}," +       
               str2 + textBox20.Text + str1 + "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + 
               str2 + textBox19.Text + str1 + "\"generic.maxHealth\",Name:\"maxHealth\"}," + 
               str2 + textBox18.Text + str1 + "\"generic.movementSpeed\",Name:\"movementSpeed\"}," +       
-              str2 + textBox17.Text + str1 + "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + str2 +       
-              textBox16.Text + str1 + "\"generic.armor\",Name:\"armor\"}," + str2 + textBox15.Text + str1 +       
-              "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox22.Text + str1 + "\"generic.luck\",Name:\"luck\"}]";
+              str2 + textBox17.Text + str1 + "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + 
+              str2 + textBox16.Text + str1 + "\"generic.armor\",Name:\"armor\"}," + 
+              str2 + textBox15.Text + str1 + "\"generic.armorToughness\",Name:\"armorToughness\"}," + 
+              str2 + textBox22.Text + str1 + "\"generic.luck\",Name:\"luck\"}]";
     SeparateSlot = ",AttributeModifiers:[" + str2 + textBox21.Text + ",Slot:head" + str1 +            
                    "\"generic.attackDamage\",Name:\"attackDamage\"}," + str2 + textBox20.Text + ",Slot:head" + str1 + 
                    "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + str2 + textBox19.Text +            
@@ -263,8 +253,8 @@ public partial class Form1 : Form {
     int attributesFlag = checkBox6.Checked ? 2 : 0;
     int unbreakableFlag = checkBox5.Checked ? 4 : 0;
     int canDestroyFlag = checkBox9.Checked ? 8 : 0;
-    int canPlaceOn = checkBox8.Checked ? 16 : 0;
-    int others = checkBox10.Checked ? 32 : 0;
+    int canPlaceOnFlag = checkBox8.Checked ? 16 : 0;
+    int othersFlag = checkBox10.Checked ? 32 : 0;
     int rgb = backColor.R * 65536 + backColor.G * 256 + backColor.B;
     string str1 = BasicGridView.CurrentRow.Cells[0].Value.ToString();
     string text1 = textBox2.Text;
@@ -294,19 +284,19 @@ public partial class Form1 : Form {
       MessageBox.Show("模型未选择或该模型无效，请选择一个合适的模型！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Hand);
     } else {
       string str15 = SaGridView.CurrentRow.Cells[2].Value.ToString();
-      for (int index3 = 1; index3 < SeGridView.Rows.Count; ++index3) {
-        if ((bool)SeGridView.Rows[index3].Cells[0].EditedFormattedValue &&
-            (string)SeGridView.Rows[index3].Cells[4].Value != null) {
-          string editedFormattedValue = (string)SeGridView.Rows[index3].Cells[4].EditedFormattedValue;   
-          str3 = str3 + (string)SeGridView.Rows[index3].Cells[3].EditedFormattedValue + ":" + editedFormattedValue + ",";
+      for (int i = 1; i < SeGridView.Rows.Count; ++i) {
+        if ((bool)SeGridView.Rows[i].Cells[0].EditedFormattedValue &&
+            (string)SeGridView.Rows[i].Cells[4].Value != null) {
+          string editedFormattedValue = (string)SeGridView.Rows[i].Cells[4].EditedFormattedValue;   
+          str3 = str3 + (string)SeGridView.Rows[i].Cells[3].EditedFormattedValue + ":" + editedFormattedValue + ",";
         }
       }
 
-      for (int index4 = 0; index4 < EnchantmentGrid.Rows.Count; ++index4) {
-        if ((bool)EnchantmentGrid.Rows[index4].Cells[0].EditedFormattedValue &&
-            (string)EnchantmentGrid.Rows[index4].Cells[3].Value != null) {
-          string editedFormattedValue1 = EnchantmentGrid.Rows[index4].Cells[2].EditedFormattedValue.ToString();   
-          string editedFormattedValue2 = EnchantmentGrid.Rows[index4].Cells[3].EditedFormattedValue.ToString();   
+      for (int i = 0; i < EnchantmentGrid.Rows.Count; ++i) {
+        if ((bool)EnchantmentGrid.Rows[i].Cells[0].EditedFormattedValue &&
+            (string)EnchantmentGrid.Rows[i].Cells[3].Value != null) {
+          string editedFormattedValue1 = EnchantmentGrid.Rows[i].Cells[2].EditedFormattedValue.ToString();   
+          string editedFormattedValue2 = EnchantmentGrid.Rows[i].Cells[3].EditedFormattedValue.ToString();   
           str4 = str4 + "{id:" + editedFormattedValue1 + ",lvl:" + editedFormattedValue2 + "},";
         }
       }
@@ -327,7 +317,6 @@ public partial class Form1 : Form {
         str2 = str1;
       }
 
-      int flags = enchantmentsFlag + attributesFlag + unbreakableFlag + canDestroyFlag + canPlaceOn + others;
       string str16 = text1.Length > 0 ? ",killCount:" : "";
       string str17 = text2.Length > 0 ? ",ProudSoul:" : "";
       string str18 = text3.Length > 0 ? ",RepairCounter:" : "";
@@ -341,6 +330,7 @@ public partial class Form1 : Form {
       string str26 = text6.Length > 0 ? ",AttackAmplifier:" : "";
       string str27 = text7.Length > 0 ? ",CustomMaxDamage:" : "";
       string str28 = !buttonCheck2.Checked ? SeparateSlot : AllSlot;
+      int flags = enchantmentsFlag + attributesFlag + unbreakableFlag + canDestroyFlag + canPlaceOnFlag + othersFlag;
       CommandOutputBox.Text = "/give @p flammpfeil.slashblade:slashblade 1 0 {StandbyRenderType:" + str11 + ",isNoScabbard:" + str6 +                
                               ",isBroken:" + str7 + str16 + text1 + str17 + text2 + str18 + text3 + str24 + text4 + str25 + text5 + str26 + text6 + str27 + text7 +                
                               ",CurrentItemName:\"" + currentItemName + "\",ModelName:\"" + modelName + "\",TextureName:\"" + textureName + "\"" + str19 + str15 + str20 +                
@@ -464,367 +454,12 @@ public partial class Form1 : Form {
     }
   }
 
-  private void timer2_Tick(object sender, EventArgs e) {
-    switch (BasicGridView.CurrentRow.Cells[0].Value.ToString()) {
-      case "31工-「紫龙息」": ModelPreviewPictureBox.Image = Resources._288; break;
-      case "31工-「金巴」": ModelPreviewPictureBox.Image = Resources._289; break;
-      case "HTOD的刀": ModelPreviewPictureBox.Image = Resources._202; break;
-      case "XingKong的刀": ModelPreviewPictureBox.Image = Resources._203; break;
-      case "til的刀": ModelPreviewPictureBox.Image = Resources._201; break;
-      case "「V.V.V.V.V.」": ModelPreviewPictureBox.Image = Resources._112; break;
-      case "「伊布之刃」": ModelPreviewPictureBox.Image = Resources._118; break;
-      case "「击柝」露台": ModelPreviewPictureBox.Image = Resources._23; break;
-      case "「剑圣之刃」伍": ModelPreviewPictureBox.Image = Resources._323; break;
-      case "「剑圣之刃」叁": ModelPreviewPictureBox.Image = Resources._321; break;
-      case "「剑圣之刃」壹": ModelPreviewPictureBox.Image = Resources._319; break;
-      case "「剑圣之刃」拾": ModelPreviewPictureBox.Image = Resources._328; break;
-      case "「剑圣之刃」拾叁": ModelPreviewPictureBox.Image = Resources._331; break;
-      case "「剑圣之刃」拾壹": ModelPreviewPictureBox.Image = Resources._329; break;
-      case "「剑圣之刃」拾贰": ModelPreviewPictureBox.Image = Resources._330; break;
-      case "「剑圣之刃」捌": ModelPreviewPictureBox.Image = Resources._326; break;
-      case "「剑圣之刃」柒": ModelPreviewPictureBox.Image = Resources._325; break;
-      case "「剑圣之刃」玖": ModelPreviewPictureBox.Image = Resources._327; break;
-      case "「剑圣之刃」肆": ModelPreviewPictureBox.Image = Resources._322; break;
-      case "「剑圣之刃」贰": ModelPreviewPictureBox.Image = Resources._320; break;
-      case "「剑圣之刃」陆": ModelPreviewPictureBox.Image = Resources._324; break;
-      case "「千兆」": ModelPreviewPictureBox.Image = Resources._87; break;
-      case "「千鹤」叁": ModelPreviewPictureBox.Image = Resources._337; break;
-      case "「千鹤」壹": ModelPreviewPictureBox.Image = Resources._335; break;
-      case "「千鹤」村正": ModelPreviewPictureBox.Image = Resources._7; break;
-      case "「千鹤」村雨": ModelPreviewPictureBox.Image = Resources._41; break;
-      case "「千鹤」肆": ModelPreviewPictureBox.Image = Resources._338; break;
-      case "「千鹤」贰": ModelPreviewPictureBox.Image = Resources._336; break;
-      case "「命刃」": ModelPreviewPictureBox.Image = Resources._342; break;
-      case "「密陀僧」": ModelPreviewPictureBox.Image = Resources._158; break;
-      case "「恶」": ModelPreviewPictureBox.Image = Resources._264; break;
-      case "「暗鸦」伍": ModelPreviewPictureBox.Image = Resources._307; break;
-      case "「暗鸦」叁": ModelPreviewPictureBox.Image = Resources._305; break;
-      case "「暗鸦」壹": ModelPreviewPictureBox.Image = Resources._303; break;
-      case "「暗鸦」柒": ModelPreviewPictureBox.Image = Resources._309; break;
-      case "「暗鸦」肆": ModelPreviewPictureBox.Image = Resources._306; break;
-      case "「暗鸦」贰": ModelPreviewPictureBox.Image = Resources._304; break;
-      case "「暗鸦」陆": ModelPreviewPictureBox.Image = Resources._308; break;
-      case "「暮雨」正宗": ModelPreviewPictureBox.Image = Resources._164; break;
-      case "「村雨」叁": ModelPreviewPictureBox.Image = Resources._302; break;
-      case "「村雨」壹": ModelPreviewPictureBox.Image = Resources._300; break;
-      case "「村雨」贰": ModelPreviewPictureBox.Image = Resources._301; break;
-      case "「梨木利亚」": ModelPreviewPictureBox.Image = Resources._109; break;
-      case "「楼观剑」": ModelPreviewPictureBox.Image = Resources._89; break;
-      case "「楼观旋风刃」": ModelPreviewPictureBox.Image = Resources._95; break;
-      case "「樱剪」": ModelPreviewPictureBox.Image = Resources._99; break;
-      case "「灭」": ModelPreviewPictureBox.Image = Resources._351; break;
-      case "「狱」": ModelPreviewPictureBox.Image = Resources._265; break;
-      case "「白刃」": ModelPreviewPictureBox.Image = Resources._340; break;
-      case "「白楼剑」": ModelPreviewPictureBox.Image = Resources._90; break;
-      case "「白楼旋风刃」": ModelPreviewPictureBox.Image = Resources._96; break;
-      case "「祭钢刃」": ModelPreviewPictureBox.Image = Resources._113; break;
-      case "「罗盘草」": ModelPreviewPictureBox.Image = Resources._163; break;
-      case "「荧光」壹": ModelPreviewPictureBox.Image = Resources._313; break;
-      case "「荧光」贰": ModelPreviewPictureBox.Image = Resources._314; break;
-      case "「血纸竹光」": ModelPreviewPictureBox.Image = Resources._80; break;
-      case "「要塞」神秘": ModelPreviewPictureBox.Image = Resources._128; break;
-      case "「要塞」虚无": ModelPreviewPictureBox.Image = Resources._129; break;
-      case "「要塞」血红": ModelPreviewPictureBox.Image = Resources._131; break;
-      case "「要塞」风雷": ModelPreviewPictureBox.Image = Resources._130; break;
-      case "「锐岩」露台": ModelPreviewPictureBox.Image = Resources._22; break;
-      case "「镇魂曲」": ModelPreviewPictureBox.Image = Resources._77; break;
-      case "「隐月 · 刃」": ModelPreviewPictureBox.Image = Resources._343; break;
-      case "「隐者之竹光」": ModelPreviewPictureBox.Image = Resources._78; break;
-      case "「风来之剑」": ModelPreviewPictureBox.Image = Resources._46; break;
-      case "「风来之械刃」": ModelPreviewPictureBox.Image = Resources._47; break;
-      case "「魔刀千刃」": ModelPreviewPictureBox.Image = Resources._149; break;
-      case "「魔刃」": ModelPreviewPictureBox.Image = Resources._341; break;
-      case "「鹿丸」": ModelPreviewPictureBox.Image = Resources._162; break;
-      case "「黑刃」": ModelPreviewPictureBox.Image = Resources._339; break;
-      case "「黑瞳」": ModelPreviewPictureBox.Image = Resources._355; break;
-      case "一斥染「甚三红」": ModelPreviewPictureBox.Image = Resources._165; break;
-      case "三雷拵": ModelPreviewPictureBox.Image = Resources._123; break;
-      case "上品「银纸竹光」": ModelPreviewPictureBox.Image = Resources._79; break;
-      case "不可视之刃「风之影」· 风": ModelPreviewPictureBox.Image = Resources._274; break;
-      case "不死斩「拜泪」": ModelPreviewPictureBox.Image = Resources._81; break;
-      case "伊恩「永恒时光之轮 · 永劫根源魔枪」": ModelPreviewPictureBox.Image = Resources._137; break;
-      case "伪物「亡者」": ModelPreviewPictureBox.Image = Resources._76; break;
-      case "伪物「白楼剑」": ModelPreviewPictureBox.Image = Resources._93; break;
-      case "伪物「葵」": ModelPreviewPictureBox.Image = Resources._74; break;
-      case "伪物「观楼剑」": ModelPreviewPictureBox.Image = Resources._94; break;
-      case "侍月刀「炎水薄斩」": ModelPreviewPictureBox.Image = Resources._42; break;
-      case "光剑「监视者」": ModelPreviewPictureBox.Image = Resources._275; break;
-      case "八卦剑": ModelPreviewPictureBox.Image = Resources._180; break;
-      case "冻樱刃「雪花苍月」": ModelPreviewPictureBox.Image = Resources._33; break;
-      case "冻樱刃「雪花苍月」叁": ModelPreviewPictureBox.Image = Resources._312; break;
-      case "冻樱刃「雪花苍月」壹": ModelPreviewPictureBox.Image = Resources._310; break;
-      case "冻樱刃「雪花苍月」贰": ModelPreviewPictureBox.Image = Resources._311; break;
-      case "刀": ModelPreviewPictureBox.Image = Resources._50; break;
-      case "刚剑「胴田贯」": ModelPreviewPictureBox.Image = Resources._3; break;
-      case "利刀「无名」红玉": ModelPreviewPictureBox.Image = Resources._24; break;
-      case "利刀「白鞘「」": ModelPreviewPictureBox.Image = Resources._59; break;
-      case "利刀「苍梅」": ModelPreviewPictureBox.Image = Resources._106; break;
-      case "利刀「钢叶」露台": ModelPreviewPictureBox.Image = Resources._168; break;
-      case "利刀「铁」露台": ModelPreviewPictureBox.Image = Resources._21; break;
-      case "利刀「铁树」露台": ModelPreviewPictureBox.Image = Resources._169; break;
-      case "利刀「铁骑」露台": ModelPreviewPictureBox.Image = Resources._170; break;
-      case "勤忙": ModelPreviewPictureBox.Image = Resources._191; break;
-      case "卡俄斯「溟濛万象」": ModelPreviewPictureBox.Image = Resources._372; break;
-      case "厄瑞波斯「永黯沉寂」": ModelPreviewPictureBox.Image = Resources._138; break;
-      case "原罪「傲慢」": ModelPreviewPictureBox.Image = Resources._252; break;
-      case "原罪「嫉妒」": ModelPreviewPictureBox.Image = Resources._254; break;
-      case "原罪「懒惰」": ModelPreviewPictureBox.Image = Resources._255; break;
-      case "原罪「暴怒」": ModelPreviewPictureBox.Image = Resources._250; break;
-      case "原罪「色欲」": ModelPreviewPictureBox.Image = Resources._256; break;
-      case "原罪「贪婪」": ModelPreviewPictureBox.Image = Resources._251; break;
-      case "原罪「贪食」": ModelPreviewPictureBox.Image = Resources._253; break;
-      case "原罪神「利维坦」": ModelPreviewPictureBox.Image = Resources._261; break;
-      case "原罪神「别西卜」": ModelPreviewPictureBox.Image = Resources._260; break;
-      case "原罪神「玛门」": ModelPreviewPictureBox.Image = Resources._258; break;
-      case "原罪神「萨迈尔」": ModelPreviewPictureBox.Image = Resources._257; break;
-      case "原罪神「贝尔芬格」": ModelPreviewPictureBox.Image = Resources._262; break;
-      case "原罪神「路西法」": ModelPreviewPictureBox.Image = Resources._259; break;
-      case "原罪神「阿斯莫德」": ModelPreviewPictureBox.Image = Resources._263; break;
-      case "名刀「亡者」": ModelPreviewPictureBox.Image = Resources._75; break;
-      case "名刀「将军木」": ModelPreviewPictureBox.Image = Resources._105; break;
-      case "名刀「揳丸」": ModelPreviewPictureBox.Image = Resources._82; break;
-      case "名刀「斗刀」": ModelPreviewPictureBox.Image = Resources._116; break;
-      case "名刀「物理学圣剑」": ModelPreviewPictureBox.Image = Resources._226; break;
-      case "名刀「玻璃」露台": ModelPreviewPictureBox.Image = Resources._172; break;
-      case "名刀「观楼剑」": ModelPreviewPictureBox.Image = Resources._88; break;
-      case "名刀「金刚」露台": ModelPreviewPictureBox.Image = Resources._19; break;
-      case "名刀「银纸竹光」": ModelPreviewPictureBox.Image = Resources._58; break;
-      case "圣剑「银弹」": ModelPreviewPictureBox.Image = Resources._227; break;
-      case "圣幸刀「绿乃雾」": ModelPreviewPictureBox.Image = Resources._43; break;
-      case "型月刀「空之境界」": ModelPreviewPictureBox.Image = Resources._53; break;
-      case "塔耳塔洛斯「狱渊之锁」": ModelPreviewPictureBox.Image = Resources._371; break;
-      case "夜叉": ModelPreviewPictureBox.Image = Resources._16; break;
-      case "夜叉 (伪)": ModelPreviewPictureBox.Image = Resources._15; break;
-      case "夜空之剑「阐释者」": ModelPreviewPictureBox.Image = Resources._272; break;
-      case "夜魔": ModelPreviewPictureBox.Image = Resources._218; break;
-      case "大地之刃": ModelPreviewPictureBox.Image = Resources._52; break;
-      case "大蛇鄂门": ModelPreviewPictureBox.Image = Resources._8; break;
-      case "天云「寒齿」": ModelPreviewPictureBox.Image = Resources._108; break;
-      case "天云「无念」": ModelPreviewPictureBox.Image = Resources._83; break;
-      case "天云「残云」": ModelPreviewPictureBox.Image = Resources._84; break;
-      case "天云「速风」": ModelPreviewPictureBox.Image = Resources._85; break;
-      case "太刀": ModelPreviewPictureBox.Image = Resources._51; break;
-      case "太刀「左伊多津万」": ModelPreviewPictureBox.Image = Resources._157; break;
-      case "太刀「花绀青伽罗」独钴": ModelPreviewPictureBox.Image = Resources._166; break;
-      case "奉神刀「鹿」": ModelPreviewPictureBox.Image = Resources._273; break;
-      case "妖刀「似蛭」": ModelPreviewPictureBox.Image = Resources._26; break;
-      case "妖刀「神狐」": ModelPreviewPictureBox.Image = Resources._144; break;
-      case "妖刀「红樱」": ModelPreviewPictureBox.Image = Resources._25; break;
-      case "宇宙最强之刃「万物终结 · 无尽星空」": ModelPreviewPictureBox.Image = Resources._413; break;
-      case "宇界起源-「翱」": ModelPreviewPictureBox.Image = Resources._299; break;
-      case "安托则斯「冥光万法」": ModelPreviewPictureBox.Image = Resources._373; break;
-      case "宙雷大刀-「绿夜」": ModelPreviewPictureBox.Image = Resources._297; break;
-      case "宝刀「山吹」露台": ModelPreviewPictureBox.Image = Resources._20; break;
-      case "宝刀「霜冻」露台": ModelPreviewPictureBox.Image = Resources._171; break;
-      case "宿命行星 · 阿南刻「天数裁定」": ModelPreviewPictureBox.Image = Resources._377; break;
-      case "小太刀「」": ModelPreviewPictureBox.Image = Resources._156; break;
-      case "小太刀「咲夜子」": ModelPreviewPictureBox.Image = Resources._154; break;
-      case "小太刀「小金兔」": ModelPreviewPictureBox.Image = Resources._152; break;
-      case "小太刀「小鸟丸」": ModelPreviewPictureBox.Image = Resources._153; break;
-      case "小太刀「落华」": ModelPreviewPictureBox.Image = Resources._155; break;
-      case "尼尔「永恒旋转之枪」": ModelPreviewPictureBox.Image = Resources._136; break;
-      case "山樱「伪」": ModelPreviewPictureBox.Image = Resources._347; break;
-      case "山樱「师走」": ModelPreviewPictureBox.Image = Resources._70; break;
-      case "山樱「水无月」": ModelPreviewPictureBox.Image = Resources._66; break;
-      case "山樱「神月」": ModelPreviewPictureBox.Image = Resources._71; break;
-      case "山樱「葵」": ModelPreviewPictureBox.Image = Resources._60; break;
-      case "山樱卯月": ModelPreviewPictureBox.Image = Resources._73; break;
-      case "山樱叶月": ModelPreviewPictureBox.Image = Resources._62; break;
-      case "山樱如月「梅」": ModelPreviewPictureBox.Image = Resources._72; break;
-      case "山樱弥生「樱」": ModelPreviewPictureBox.Image = Resources._67; break;
-      case "山樱文月": ModelPreviewPictureBox.Image = Resources._61; break;
-      case "山樱皋月": ModelPreviewPictureBox.Image = Resources._68; break;
-      case "山樱睦月「松」": ModelPreviewPictureBox.Image = Resources._63; break;
-      case "山樱神无月「枫」": ModelPreviewPictureBox.Image = Resources._64; break;
-      case "山樱长月「菊」": ModelPreviewPictureBox.Image = Resources._65; break;
-      case "山樱霜月": ModelPreviewPictureBox.Image = Resources._69; break;
-      case "工-「儊晓」": ModelPreviewPictureBox.Image = Resources._291; break;
-      case "工-「古一眉」": ModelPreviewPictureBox.Image = Resources._292; break;
-      case "工-「魔钢刃」": ModelPreviewPictureBox.Image = Resources._290; break;
-      case "平庸「斗刀」": ModelPreviewPictureBox.Image = Resources._115; break;
-      case "幻魔炼金拵": ModelPreviewPictureBox.Image = Resources._40; break;
-      case "幽狂-「赤浴血」": ModelPreviewPictureBox.Image = Resources._295; break;
-      case "异次元「管理者之刃」": ModelPreviewPictureBox.Image = Resources._412; break;
-      case "异界剑魂「」": ModelPreviewPictureBox.Image = Resources._349; break;
-      case "御神刀「神狐」": ModelPreviewPictureBox.Image = Resources._148; break;
-      case "德雷格兰「圣契」": ModelPreviewPictureBox.Image = Resources._374; break;
-      case "折断的阎魔刀": ModelPreviewPictureBox.Image = Resources._14; break;
-      case "撼地巨锤": ModelPreviewPictureBox.Image = Resources._187; break;
-      case "擒苍": ModelPreviewPictureBox.Image = Resources._189; break;
-      case "散华": ModelPreviewPictureBox.Image = Resources._12; break;
-      case "文始": ModelPreviewPictureBox.Image = Resources._86; break;
-      case "斑鸠之刃": ModelPreviewPictureBox.Image = Resources._107; break;
-      case "斗刀「孤独」": ModelPreviewPictureBox.Image = Resources._117; break;
-      case "无神「无刃」": ModelPreviewPictureBox.Image = Resources._39; break;
-      case "无铭「影狐」": ModelPreviewPictureBox.Image = Resources._111; break;
-      case "无铭刀「木偶」": ModelPreviewPictureBox.Image = Resources._56; break;
-      case "无铭刀「竹光」": ModelPreviewPictureBox.Image = Resources._57; break;
-      case "无魂剑「」": ModelPreviewPictureBox.Image = Resources._220; break;
-      case "日耀剑「光日」": ModelPreviewPictureBox.Image = Resources._114; break;
-      case "时之镰": ModelPreviewPictureBox.Image = Resources._199; break;
-      case "明兽刃「阳牙冰狼」": ModelPreviewPictureBox.Image = Resources._34; break;
-      case "明兽刃「阳牙冰狼」叁": ModelPreviewPictureBox.Image = Resources._334; break;
-      case "明兽刃「阳牙冰狼」壹": ModelPreviewPictureBox.Image = Resources._332; break;
-      case "明兽刃「阳牙冰狼」贰": ModelPreviewPictureBox.Image = Resources._333; break;
-      case "星云剑「雾鸦」": ModelPreviewPictureBox.Image = Resources._143; break;
-      case "星云剑「雾鸦」1": ModelPreviewPictureBox.Image = Resources._232; break;
-      case "星云剑「雾鸦」10": ModelPreviewPictureBox.Image = Resources._241; break;
-      case "星云剑「雾鸦」11": ModelPreviewPictureBox.Image = Resources._242; break;
-      case "星云剑「雾鸦」12": ModelPreviewPictureBox.Image = Resources._243; break;
-      case "星云剑「雾鸦」13": ModelPreviewPictureBox.Image = Resources._244; break;
-      case "星云剑「雾鸦」14": ModelPreviewPictureBox.Image = Resources._245; break;
-      case "星云剑「雾鸦」15": ModelPreviewPictureBox.Image = Resources._246; break;
-      case "星云剑「雾鸦」16": ModelPreviewPictureBox.Image = Resources._247; break;
-      case "星云剑「雾鸦」17": ModelPreviewPictureBox.Image = Resources._248; break;
-      case "星云剑「雾鸦」2": ModelPreviewPictureBox.Image = Resources._233; break;
-      case "星云剑「雾鸦」3": ModelPreviewPictureBox.Image = Resources._234; break;
-      case "星云剑「雾鸦」4": ModelPreviewPictureBox.Image = Resources._235; break;
-      case "星云剑「雾鸦」5": ModelPreviewPictureBox.Image = Resources._236; break;
-      case "星云剑「雾鸦」6": ModelPreviewPictureBox.Image = Resources._237; break;
-      case "星云剑「雾鸦」7": ModelPreviewPictureBox.Image = Resources._238; break;
-      case "星云剑「雾鸦」8": ModelPreviewPictureBox.Image = Resources._239; break;
-      case "星云剑「雾鸦」9": ModelPreviewPictureBox.Image = Resources._240; break;
-      case "星典": ModelPreviewPictureBox.Image = Resources._193; break;
-      case "星流利刃": ModelPreviewPictureBox.Image = Resources._183; break;
-      case "普洛托革诺伊「始源」": ModelPreviewPictureBox.Image = Resources._140; break;
-      case "暗鸦": ModelPreviewPictureBox.Image = Resources._30; break;
-      case "曙色斩月": ModelPreviewPictureBox.Image = Resources._160; break;
-      case "月光樱「吹雪一闪」": ModelPreviewPictureBox.Image = Resources._44; break;
-      case "月光紫「虚无之影」": ModelPreviewPictureBox.Image = Resources._206; break;
-      case "木刀「铁刀木」": ModelPreviewPictureBox.Image = Resources._18; break;
-      case "木鞘「「刃条」": ModelPreviewPictureBox.Image = Resources._147; break;
-      case "木鞘「「神狐」": ModelPreviewPictureBox.Image = Resources._145; break;
-      case "朴素拵": ModelPreviewPictureBox.Image = Resources._121; break;
-      case "杀马人之刃": ModelPreviewPictureBox.Image = Resources._222; break;
-      case "村锖丸": ModelPreviewPictureBox.Image = Resources._142; break;
-      case "村雨丸": ModelPreviewPictureBox.Image = Resources._141; break;
-      case "极寒刃「雪走」· 雪": ModelPreviewPictureBox.Image = Resources._284; break;
-      case "枯石大刀": ModelPreviewPictureBox.Image = Resources._6; break;
-      case "柮夭": ModelPreviewPictureBox.Image = Resources._188; break;
-      case "柯罗诺斯「万古琨矇」": ModelPreviewPictureBox.Image = Resources._379; break;
-      case "柯罗诺斯「始源之枪」": ModelPreviewPictureBox.Image = Resources._378; break;
-      case "柯罗诺斯「永境之主」": ModelPreviewPictureBox.Image = Resources._139; break;
-      case "棘羽「毕方」": ModelPreviewPictureBox.Image = Resources._414; break;
-      case "森森幽罗「青鬼」": ModelPreviewPictureBox.Image = Resources._282; break;
-      case "次元之刃「伪」": ModelPreviewPictureBox.Image = Resources._346; break;
-      case "欺骗者「影月」· 月": ModelPreviewPictureBox.Image = Resources._285; break;
-      case "死神「幽之名」": ModelPreviewPictureBox.Image = Resources._286; break;
-      case "水波折": ModelPreviewPictureBox.Image = Resources._176; break;
-      case "洞爷湖": ModelPreviewPictureBox.Image = Resources._45; break;
-      case "洞虚幻刃": ModelPreviewPictureBox.Image = Resources._184; break;
-      case "海格力斯「闪耀之星」": ModelPreviewPictureBox.Image = Resources._135; break;
-      case "渝州「长清」": ModelPreviewPictureBox.Image = Resources._110; break;
-      case "激光剑1": ModelPreviewPictureBox.Image = Resources._194; break;
-      case "激光剑2": ModelPreviewPictureBox.Image = Resources._195; break;
-      case "激光剑3": ModelPreviewPictureBox.Image = Resources._196; break;
-      case "灵钢刃「技术革新」": ModelPreviewPictureBox.Image = Resources._209; break;
-      case "灵钢刃「能量守恒」": ModelPreviewPictureBox.Image = Resources._210; break;
-      case "灾厄之源「劫」": ModelPreviewPictureBox.Image = Resources._278; break;
-      case "炎刀「炽铁」露台": ModelPreviewPictureBox.Image = Resources._167; break;
-      case "炎极必寒「极意」": ModelPreviewPictureBox.Image = Resources._279; break;
-      case "炎王-「火红莲」": ModelPreviewPictureBox.Image = Resources._296; break;
-      case "炎王「流刃若火」": ModelPreviewPictureBox.Image = Resources._280; break;
-      case "炼狱刀「死念」": ModelPreviewPictureBox.Image = Resources._27; break;
-      case "炼狱刀「真红」": ModelPreviewPictureBox.Image = Resources._151; break;
-      case "炼狱刀「血腥」": ModelPreviewPictureBox.Image = Resources._267; break;
-      case "狐月刀「白狐」": ModelPreviewPictureBox.Image = Resources._5; break;
-      case "狐月刀「黑狐」": ModelPreviewPictureBox.Image = Resources._4; break;
-      case "狗年专属「啸月」": ModelPreviewPictureBox.Image = Resources._283; break;
-      case "狱刀「似蛭」": ModelPreviewPictureBox.Image = Resources._29; break;
-      case "狱刀「死念」赝": ModelPreviewPictureBox.Image = Resources._150; break;
-      case "狱刀「死念」赝 ": ModelPreviewPictureBox.Image = Resources._266; break;
-      case "狱界剑「楼观剑」": ModelPreviewPictureBox.Image = Resources._91; break;
-      case "狱界剑「白楼剑」": ModelPreviewPictureBox.Image = Resources._92; break;
-      case "现世刀「斩月」": ModelPreviewPictureBox.Image = Resources._231; break;
-      case "生机「绿萝」": ModelPreviewPictureBox.Image = Resources._281; break;
-      case "白「天锁斩月」": ModelPreviewPictureBox.Image = Resources._287; break;
-      case "白の契约": ModelPreviewPictureBox.Image = Resources._269; break;
-      case "白の约定": ModelPreviewPictureBox.Image = Resources._271; break;
-      case "白兰剑「君」": ModelPreviewPictureBox.Image = Resources._268; break;
-      case "白刃": ModelPreviewPictureBox.Image = Resources._204; break;
-      case "百兽剑王「巨狮」": ModelPreviewPictureBox.Image = Resources._270; break;
-      case "石剑「」": ModelPreviewPictureBox.Image = Resources._354; break;
-      case "神威刀「乌卡」": ModelPreviewPictureBox.Image = Resources._38; break;
-      case "神威刀「坎那」": ModelPreviewPictureBox.Image = Resources._37; break;
-      case "神威刀「虎杖丸」": ModelPreviewPictureBox.Image = Resources._35; break;
-      case "神威刀「阿贝」": ModelPreviewPictureBox.Image = Resources._36; break;
-      case "神秘要塞日本刀": ModelPreviewPictureBox.Image = Resources._124; break;
-      case "神钢刃「工艺复兴」": ModelPreviewPictureBox.Image = Resources._208; break;
-      case "神钢刃「血腥革新」": ModelPreviewPictureBox.Image = Resources._207; break;
-      case "神陨剑": ModelPreviewPictureBox.Image = Resources._198; break;
-      case "管理员之刃「伪物」": ModelPreviewPictureBox.Image = Resources._225; break;
-      case "紫刃「虚」": ModelPreviewPictureBox.Image = Resources._345; break;
-      case "纳米太刀": ModelPreviewPictureBox.Image = Resources._97; break;
-      case "结月刀「付丧」": ModelPreviewPictureBox.Image = Resources._17; break;
-      case "结月刀「付丧」叁": ModelPreviewPictureBox.Image = Resources._317; break;
-      case "结月刀「付丧」壹": ModelPreviewPictureBox.Image = Resources._315; break;
-      case "结月刀「付丧」肆": ModelPreviewPictureBox.Image = Resources._318; break;
-      case "结月刀「付丧」贰": ModelPreviewPictureBox.Image = Resources._316; break;
-      case "结月刀「因缘」": ModelPreviewPictureBox.Image = Resources._54; break;
-      case "美工刀": ModelPreviewPictureBox.Image = Resources._174; break;
-      case "聚变之星 · 倪克斯「辰宿瞬变」": ModelPreviewPictureBox.Image = Resources._376; break;
-      case "自定义": ModelPreviewPictureBox.Image = Resources._0; break;
-      case "自锻刀「神秘」": ModelPreviewPictureBox.Image = Resources._119; break;
-      case "自锻刀「红钢」": ModelPreviewPictureBox.Image = Resources._132; break;
-      case "自锻刀「蓝钢」": ModelPreviewPictureBox.Image = Resources._133; break;
-      case "自锻刀「虚空」": ModelPreviewPictureBox.Image = Resources._120; break;
-      case "花之妖精「弥葵」· 花": ModelPreviewPictureBox.Image = Resources._276; break;
-      case "花天狂骨「花天」": ModelPreviewPictureBox.Image = Resources._277; break;
-      case "荆棘之刃「虚」": ModelPreviewPictureBox.Image = Resources._348; break;
-      case "荧光": ModelPreviewPictureBox.Image = Resources._32; break;
-      case "落樱何思": ModelPreviewPictureBox.Image = Resources._161; break;
-      case "落英拵": ModelPreviewPictureBox.Image = Resources._122; break;
-      case "虚无之刃「」": ModelPreviewPictureBox.Image = Resources._350; break;
-      case "虚空要塞日本刀": ModelPreviewPictureBox.Image = Resources._125; break;
-      case "血刀「似蛭」": ModelPreviewPictureBox.Image = Resources._28; break;
-      case "血刃「栗山未来」": ModelPreviewPictureBox.Image = Resources._205; break;
-      case "血月": ModelPreviewPictureBox.Image = Resources._192; break;
-      case "血腥要塞日本刀": ModelPreviewPictureBox.Image = Resources._127; break;
-      case "血色木偶": ModelPreviewPictureBox.Image = Resources._173; break;
-      case "质太刀-「舞纵」": ModelPreviewPictureBox.Image = Resources._298; break;
-      case "轩辕剑": ModelPreviewPictureBox.Image = Resources._178; break;
-      case "逐焰": ModelPreviewPictureBox.Image = Resources._190; break;
-      case "邪魔刃「修罗」": ModelPreviewPictureBox.Image = Resources._104; break;
-      case "邪魔刃「双」": ModelPreviewPictureBox.Image = Resources._103; break;
-      case "鄂门": ModelPreviewPictureBox.Image = Resources._10; break;
-      case "鄂门 ": ModelPreviewPictureBox.Image = Resources._1; break;
-      case "鄂门 (锈)": ModelPreviewPictureBox.Image = Resources._9; break;
-      case "鄂门 (锈) ": ModelPreviewPictureBox.Image = Resources._2; break;
-      case "量子太刀": ModelPreviewPictureBox.Image = Resources._98; break;
-      case "钢刃「源初」": ModelPreviewPictureBox.Image = Resources._211; break;
-      case "钢刃「纳米科技」": ModelPreviewPictureBox.Image = Resources._212; break;
-      case "钻石剑「」": ModelPreviewPictureBox.Image = Resources._352; break;
-      case "铁剑「」": ModelPreviewPictureBox.Image = Resources._353; break;
-      case "铭刀「悭臾」": ModelPreviewPictureBox.Image = Resources._229; break;
-      case "铭刀「蟾宫」": ModelPreviewPictureBox.Image = Resources._230; break;
-      case "铭刀「鱼音」": ModelPreviewPictureBox.Image = Resources._228; break;
-      case "银灰": ModelPreviewPictureBox.Image = Resources._219; break;
-      case "锁狱镰": ModelPreviewPictureBox.Image = Resources._185; break;
-      case "锁魂": ModelPreviewPictureBox.Image = Resources._197; break;
-      case "锈刀": ModelPreviewPictureBox.Image = Resources._11; break;
-      case "锈迹斑斑的刀": ModelPreviewPictureBox.Image = Resources._146; break;
-      case "长空落日": ModelPreviewPictureBox.Image = Resources._200; break;
-      case "阳": ModelPreviewPictureBox.Image = Resources._182; break;
-      case "阴": ModelPreviewPictureBox.Image = Resources._181; break;
-      case "阿尔忒弥斯「影月」": ModelPreviewPictureBox.Image = Resources._134; break;
-      case "阿尔忒弥斯「耀月」": ModelPreviewPictureBox.Image = Resources._375; break;
-      case "陨星杖": ModelPreviewPictureBox.Image = Resources._177; break;
-      case "雪鸦": ModelPreviewPictureBox.Image = Resources._31; break;
-      case "青云": ModelPreviewPictureBox.Image = Resources._175; break;
-      case "静秘守卫": ModelPreviewPictureBox.Image = Resources._186; break;
-      case "风雷要塞日本刀": ModelPreviewPictureBox.Image = Resources._126; break;
-      case "驱魔刃「杏」": ModelPreviewPictureBox.Image = Resources._101; break;
-      case "驱魔刃「樱」": ModelPreviewPictureBox.Image = Resources._100; break;
-      case "驱魔刃「雪影」": ModelPreviewPictureBox.Image = Resources._102; break;
-      case "魔剑「阎魔刀」": ModelPreviewPictureBox.Image = Resources._13; break;
-      case "黑刃": ModelPreviewPictureBox.Image = Resources._179; break;
-      case "黑快刀-「帝心」": ModelPreviewPictureBox.Image = Resources._293; break;
-      case "黑快刀-「银刃」": ModelPreviewPictureBox.Image = Resources._294; break;
-      case "龙刃「猩红」": ModelPreviewPictureBox.Image = Resources._344; break;
-      case "龙剑「行草俱利伽罗刻」": ModelPreviewPictureBox.Image = Resources._159; break;
-      case "龙太刀「噬风者」": ModelPreviewPictureBox.Image = Resources._48; break;
-      case "龙太刀「西风」": ModelPreviewPictureBox.Image = Resources._49; break;
-      default: ModelPreviewPictureBox.Image = Resources.nameless; break;
+  private void BasicGridViewRowClickTick(object sender, EventArgs e) {
+    if (BasicGridView.CurrentRow != null) {
+      Image errorImage = ModelPreviewPictureBox.ErrorImage;
+      string name = BasicGridView.CurrentRow.Cells[0].Value.ToString();
+      string path = Environment.CurrentDirectory + "/images/" + name + ".png";
+      ModelPreviewPictureBox.Image = File.Exists(path) ? Image.FromFile(path) : errorImage;
     }
   }
 
@@ -913,4 +548,3 @@ public partial class Form1 : Form {
   }
 
 }
-  

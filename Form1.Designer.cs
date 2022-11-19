@@ -12,11 +12,11 @@ partial class Form1 {
     protected string AllSlot;
     protected string SeparateSlot;
     protected IContainer components;
-    public Button ClearTextButton;
-    public Button InstructionsButton;
-    public Button BatchEnchantButton;
-    public Button CommandOutputButton;
-    public Button BatchSpecialEffectButton;
+    private Button ClearTextButton;
+    private Button InstructionsButton;
+    private Button BatchEnchantButton;
+    private Button CommandOutputButton;
+    private Button BatchSpecialEffectButton;
     public CheckBox checkBox1;
     public CheckBox checkBox2;
     public CheckBox checkBox4;
@@ -2713,7 +2713,7 @@ partial class Form1 {
         label29.Text = "等级：";
         timer2.Enabled = true;
         timer2.Interval = 10;
-        timer2.Tick += timer2_Tick;
+        timer2.Tick += BasicGridViewRowClickTick;
         timer3.Enabled = true;
         timer3.Interval = 10;
         timer3.Tick += timer3_Tick;
