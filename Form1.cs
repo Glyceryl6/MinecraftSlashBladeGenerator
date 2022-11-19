@@ -12,7 +12,7 @@ namespace MinecraftSlashBladeGenerator;
 public partial class Form1 : Form {
 
   [DllImport("user32.dll")]
-  private static extern int GetScrollPos(IntPtr hwnd, int nBar);
+  private static extern int GetScrollPos(IntPtr handler, int nBar);
 
   public Form1() {
     InitializeComponent();
@@ -36,12 +36,11 @@ public partial class Form1 : Form {
   }
 
   private void Form1_Load(object sender, EventArgs e) {
-    AutoScroll = true;
-    EnchantmentGrid.Rows.Add(30);
     AddInfo(BasicGridView, "blade_list.csv");
     AddInfo(SaGridView, "blade_sa.csv");
-    AddSpecialEffectInfo();
-    AddEnchantmentName();
+    AddInfo2(SeGridView, "blade_se.csv");
+    AddInfo2(EnchantmentGrid, "enchantments.csv");
+    AutoScroll = true;
   }
   
   private static int ReadFileLines(string path) {
@@ -85,82 +84,18 @@ public partial class Form1 : Form {
     }
   }
 
-  private void AddSpecialEffectInfo() {
-    string csvPath = Environment.CurrentDirectory + "/list/blade_se.csv";
+  private void AddInfo2(DataGridView dataGridView, string path) {
+    string csvPath = Environment.CurrentDirectory + "/list/" + path;
     if (File.Exists(csvPath)) {
       string[] csvLineList = File.ReadAllLines(csvPath, Encoding.Default);
-      SeGridView.Rows.Add(ReadFileLines(csvPath));
+      dataGridView.Rows.Add(ReadFileLines(csvPath));
       for (int i = 0; i < ReadFileLines(csvPath); i++) {
-        string s = csvLineList[i];
-        List<string> list = new List<string>(s.Split(','));
-        SeGridView.Rows[i].Cells[1].Value = list[0];
-        SeGridView.Rows[i].Cells[2].Value = list[1];
-        SeGridView.Rows[i].Cells[3].Value = list[2];
+        List<string> list = new List<string>(csvLineList[i].Split(','));
+        dataGridView.Rows[i].Cells[1].Value = list[0];
+        dataGridView.Rows[i].Cells[2].Value = list[1];
+        dataGridView.Rows[i].Cells[3].Value = list[2];
       }
     }
-  }
-
-  private void AddEnchantmentName() {
-    EnchantmentGrid.Rows[0].Cells[1].Value = "保护";
-    EnchantmentGrid.Rows[1].Cells[1].Value = "火焰保护";
-    EnchantmentGrid.Rows[2].Cells[1].Value = "摔落保护";
-    EnchantmentGrid.Rows[3].Cells[1].Value = "爆炸保护";
-    EnchantmentGrid.Rows[4].Cells[1].Value = "弹射物保护";
-    EnchantmentGrid.Rows[5].Cells[1].Value = "荆棘";
-    EnchantmentGrid.Rows[6].Cells[1].Value = "水下呼吸";
-    EnchantmentGrid.Rows[7].Cells[1].Value = "深海探索者";
-    EnchantmentGrid.Rows[8].Cells[1].Value = "水下速掘";
-    EnchantmentGrid.Rows[9].Cells[1].Value = "锋利";
-    EnchantmentGrid.Rows[10].Cells[1].Value = "亡灵杀手";
-    EnchantmentGrid.Rows[11].Cells[1].Value = "节肢杀手";
-    EnchantmentGrid.Rows[12].Cells[1].Value = "击退";
-    EnchantmentGrid.Rows[13].Cells[1].Value = "火焰附加";
-    EnchantmentGrid.Rows[14].Cells[1].Value = "抢夺";
-    EnchantmentGrid.Rows[15].Cells[1].Value = "效率";
-    EnchantmentGrid.Rows[16].Cells[1].Value = "精准采集";
-    EnchantmentGrid.Rows[17].Cells[1].Value = "耐久";
-    EnchantmentGrid.Rows[18].Cells[1].Value = "时运";
-    EnchantmentGrid.Rows[19].Cells[1].Value = "力量";
-    EnchantmentGrid.Rows[20].Cells[1].Value = "冲击";
-    EnchantmentGrid.Rows[21].Cells[1].Value = "火矢";
-    EnchantmentGrid.Rows[22].Cells[1].Value = "无限";
-    EnchantmentGrid.Rows[23].Cells[1].Value = "海之眷顾";
-    EnchantmentGrid.Rows[24].Cells[1].Value = "饵钓";
-    EnchantmentGrid.Rows[25].Cells[1].Value = "冰霜行者";
-    EnchantmentGrid.Rows[26].Cells[1].Value = "经验修补";
-    EnchantmentGrid.Rows[27].Cells[1].Value = "绑定诅咒";
-    EnchantmentGrid.Rows[28].Cells[1].Value = "消失诅咒";
-    EnchantmentGrid.Rows[29].Cells[1].Value = "横扫之刃";
-    EnchantmentGrid.Rows[0].Cells[2].Value = "0";
-    EnchantmentGrid.Rows[1].Cells[2].Value = "1";
-    EnchantmentGrid.Rows[2].Cells[2].Value = "2";
-    EnchantmentGrid.Rows[3].Cells[2].Value = "3";
-    EnchantmentGrid.Rows[4].Cells[2].Value = "4";
-    EnchantmentGrid.Rows[5].Cells[2].Value = "7";
-    EnchantmentGrid.Rows[6].Cells[2].Value = "5";
-    EnchantmentGrid.Rows[7].Cells[2].Value = "8";
-    EnchantmentGrid.Rows[8].Cells[2].Value = "6";
-    EnchantmentGrid.Rows[9].Cells[2].Value = "16";
-    EnchantmentGrid.Rows[10].Cells[2].Value = "17";
-    EnchantmentGrid.Rows[11].Cells[2].Value = "18";
-    EnchantmentGrid.Rows[12].Cells[2].Value = "19";
-    EnchantmentGrid.Rows[13].Cells[2].Value = "20";
-    EnchantmentGrid.Rows[14].Cells[2].Value = "21";
-    EnchantmentGrid.Rows[15].Cells[2].Value = "32";
-    EnchantmentGrid.Rows[16].Cells[2].Value = "33";
-    EnchantmentGrid.Rows[17].Cells[2].Value = "34";
-    EnchantmentGrid.Rows[18].Cells[2].Value = "35";
-    EnchantmentGrid.Rows[19].Cells[2].Value = "48";
-    EnchantmentGrid.Rows[20].Cells[2].Value = "49";
-    EnchantmentGrid.Rows[21].Cells[2].Value = "50";
-    EnchantmentGrid.Rows[22].Cells[2].Value = "51";
-    EnchantmentGrid.Rows[23].Cells[2].Value = "61";
-    EnchantmentGrid.Rows[24].Cells[2].Value = "62";
-    EnchantmentGrid.Rows[25].Cells[2].Value = "9";
-    EnchantmentGrid.Rows[26].Cells[2].Value = "70";
-    EnchantmentGrid.Rows[27].Cells[2].Value = "10";
-    EnchantmentGrid.Rows[28].Cells[2].Value = "71";
-    EnchantmentGrid.Rows[29].Cells[2].Value = "22";
   }
 
   private static void ClearText(Control ctrlTop) {
@@ -188,22 +123,22 @@ public partial class Form1 : Form {
     string str1 = ",AttributeName:";
     string str2 = "{Operation:0,Amount:";
     AllSlot = ",AttributeModifiers:[" + 
-              str2 + textBox21.Text + str1 + "\"generic.attackDamage\",Name:\"attackDamage\"}," +       
-              str2 + textBox20.Text + str1 + "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + 
-              str2 + textBox19.Text + str1 + "\"generic.maxHealth\",Name:\"maxHealth\"}," + 
-              str2 + textBox18.Text + str1 + "\"generic.movementSpeed\",Name:\"movementSpeed\"}," +       
-              str2 + textBox17.Text + str1 + "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + 
-              str2 + textBox16.Text + str1 + "\"generic.armor\",Name:\"armor\"}," + 
-              str2 + textBox15.Text + str1 + "\"generic.armorToughness\",Name:\"armorToughness\"}," + 
-              str2 + textBox22.Text + str1 + "\"generic.luck\",Name:\"luck\"}]";
-    SeparateSlot = ",AttributeModifiers:[" + str2 + textBox21.Text + ",Slot:head" + str1 +            
-                   "\"generic.attackDamage\",Name:\"attackDamage\"}," + str2 + textBox20.Text + ",Slot:head" + str1 + 
-                   "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + str2 + textBox19.Text +            
-                   ",Slot:head" + str1 + "\"generic.maxHealth\",Name:\"maxHealth\"}," + str2 + textBox18.Text + ",Slot:head" + str1 +            
-                   "\"generic.movementSpeed\",Name:\"movementSpeed\"}," + str2 + textBox17.Text + ",Slot:head" + str1 +
-                   "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + str2 + textBox16.Text + ",Slot:head" + str1 +            
-                   "\"generic.armor\",Name:\"armor\"}," + str2 + textBox15.Text + ",Slot:head" + str1 +            
-                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox22.Text + ",Slot:head" + str1 +            
+              str2 + AttackDamageBox.Text + str1 + "\"generic.attackDamage\",Name:\"attackDamage\"}," +       
+              str2 + AttackSpeedBox.Text + str1 + "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + 
+              str2 + MaxHealthBox.Text + str1 + "\"generic.maxHealth\",Name:\"maxHealth\"}," + 
+              str2 + MovementSpeedBox.Text + str1 + "\"generic.movementSpeed\",Name:\"movementSpeed\"}," +       
+              str2 + KnockbackResistanceBox.Text + str1 + "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + 
+              str2 + ArmorBox.Text + str1 + "\"generic.armor\",Name:\"armor\"}," + 
+              str2 + ArmorToughnessBox.Text + str1 + "\"generic.armorToughness\",Name:\"armorToughness\"}," + 
+              str2 + LuckBox.Text + str1 + "\"generic.luck\",Name:\"luck\"}]";
+    SeparateSlot = ",AttributeModifiers:[" + str2 + AttackDamageBox.Text + ",Slot:head" + str1 +            
+                   "\"generic.attackDamage\",Name:\"attackDamage\"}," + str2 + AttackSpeedBox.Text + ",Slot:head" + str1 + 
+                   "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + str2 + MaxHealthBox.Text + ",Slot:head" + str1 + 
+                   "\"generic.maxHealth\",Name:\"maxHealth\"}," + str2 + MovementSpeedBox.Text + ",Slot:head" + str1 +            
+                   "\"generic.movementSpeed\",Name:\"movementSpeed\"}," + str2 + KnockbackResistanceBox.Text + ",Slot:head" + str1 +
+                   "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + str2 + ArmorBox.Text + ",Slot:head" + str1 +            
+                   "\"generic.armor\",Name:\"armor\"}," + str2 + ArmorToughnessBox.Text + ",Slot:head" + str1 +            
+                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + LuckBox.Text + ",Slot:head" + str1 +
                    "\"generic.luck\",Name:\"luck\"}," + str2 + textBox32.Text + ",Slot:chest" + str1 +            
                    "\"generic.attackDamage\",Name:\"attackDamage\"}," + str2 + textBox31.Text + ",Slot:chest" + str1 +            
                    "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + str2 + textBox30.Text + ",Slot:chest" + str1 +            
@@ -211,7 +146,7 @@ public partial class Form1 : Form {
                    "\"generic.movementSpeed\",Name:\"movementSpeed\"}," + str2 + textBox28.Text + ",Slot:chest" + str1 +            
                    "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + str2 + textBox27.Text + ",Slot:chest" + str1 +            
                    "\"generic.armor\",Name:\"armor\"}," + str2 + textBox26.Text + ",Slot:chest" + str1 +            
-                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox24.Text + ",Slot:chest" + str1 +            
+                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox24.Text + ",Slot:chest" + str1 +
                    "\"generic.luck\",Name:\"luck\"}," + str2 + textBox41.Text + ",Slot:legs" + str1 +            
                    "\"generic.attackDamage\",Name:\"attackDamage\"}," + str2 + textBox40.Text + ",Slot:legs" + str1 +
                    "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + str2 + textBox39.Text + ",Slot:legs" + str1 + 
@@ -219,15 +154,15 @@ public partial class Form1 : Form {
                    "\"generic.movementSpeed\",Name:\"movementSpeed\"}," + str2 + textBox37.Text + ",Slot:legs" + str1 + 
                    "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + str2 + textBox36.Text + ",Slot:legs" + str1 +
                    "\"generic.armor\",Name:\"armor\"}," + str2 + textBox35.Text + ",Slot:legs" + str1 +
-                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox33.Text + ",Slot:legs" + str1 +            
-                   "\"generic.luck\",Name:\"luck\"}," + str2 + textBox50.Text + ",Slot:feet" + str1 +            
+                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox33.Text + ",Slot:legs" + str1 +
+                   "\"generic.luck\",Name:\"luck\"}," + str2 + textBox50.Text + ",Slot:feet" + str1 +
                    "\"generic.attackDamage\",Name:\"attackDamage\"}," + str2 + textBox49.Text + ",Slot:feet" + str1 +
                    "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + str2 + textBox48.Text + ",Slot:feet" + str1 +
                    "\"generic.maxHealth\",Name:\"maxHealth\"}," + str2 + textBox47.Text + ",Slot:feet" + str1 +
                    "\"generic.movementSpeed\",Name:\"movementSpeed\"}," + str2 + textBox46.Text + ",Slot:feet" + str1 + 
                    "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + str2 + textBox45.Text + ",Slot:feet" + str1 +
                    "\"generic.armor\",Name:\"armor\"}," + str2 + textBox44.Text + ",Slot:feet" + str1 +
-                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox42.Text + ",Slot:feet" + str1 +           
+                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox42.Text + ",Slot:feet" + str1 +
                    "\"generic.luck\",Name:\"luck\"}," + str2 + textBox59.Text + ",Slot:mainhand" + str1 +
                    "\"generic.attackDamage\",Name:\"attackDamage\"}," + str2 + textBox58.Text + ",Slot:mainhand" + str1 +            
                    "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + str2 + textBox57.Text + ",Slot:mainhand" + str1 + 
@@ -235,7 +170,7 @@ public partial class Form1 : Form {
                    "\"generic.movementSpeed\",Name:\"movementSpeed\"}," + str2 + textBox55.Text + ",Slot:mainhand" + str1 +            
                    "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + str2 + textBox54.Text + ",Slot:mainhand" + str1 +            
                    "\"generic.armor\",Name:\"armor\"}," + str2 + textBox53.Text + ",Slot:mainhand" + str1 +
-                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox51.Text + ",Slot:mainhand" + str1 +            
+                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox51.Text + ",Slot:mainhand" + str1 +
                    "\"generic.luck\",Name:\"luck\"}," + str2 + textBox68.Text + ",Slot:offhand" + str1 +
                    "\"generic.attackDamage\",Name:\"attackDamage\"}," + str2 + textBox67.Text + ",Slot:offhand" + str1 +
                    "\"generic.attackSpeed\",Name:\"attackSpeed\"}," + str2 + textBox66.Text + ",Slot:offhand" + str1 +
@@ -243,12 +178,12 @@ public partial class Form1 : Form {
                    "\"generic.movementSpeed\",Name:\"movementSpeed\"}," + str2 + textBox64.Text + ",Slot:offhand" + str1 +            
                    "\"generic.knockbackResistance\",Name:\"knockbackResistance\"}," + str2 + textBox63.Text + ",Slot:offhand" + str1 +            
                    "\"generic.armor\",Name:\"armor\"}," + str2 + textBox62.Text + ",Slot:offhand" + str1 +
-                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox60.Text + ",Slot:offhand" +
-                   str1 + "\"generic.luck\",Name:\"luck\"}]";
+                   "\"generic.armorToughness\",Name:\"armorToughness\"}," + str2 + textBox60.Text + ",Slot:offhand" + str1 + 
+                   "\"generic.luck\",Name:\"luck\"}]";
   }
 
   private void CommandOutputButtonClick(object sender, EventArgs e) {
-    Color backColor = label77.BackColor;
+    Color backColor = ColorLabel.BackColor;
     int enchantmentsFlag = checkBox7.Checked ? 1 : 0;
     int attributesFlag = checkBox6.Checked ? 2 : 0;
     int unbreakableFlag = checkBox5.Checked ? 4 : 0;
@@ -256,96 +191,100 @@ public partial class Form1 : Form {
     int canPlaceOnFlag = checkBox8.Checked ? 16 : 0;
     int othersFlag = checkBox10.Checked ? 32 : 0;
     int rgb = backColor.R * 65536 + backColor.G * 256 + backColor.B;
-    string str1 = BasicGridView.CurrentRow.Cells[0].Value.ToString();
-    string text1 = textBox2.Text;
-    string text2 = textBox3.Text;
-    string text3 = textBox4.Text;
-    string text4 = textBox5.Text;
-    string text5 = textBox4.Text;
-    string text6 = textBox7.Text;
-    string text7 = textBox8.Text;
-    string str2 = textBox12.Text;
-    string text8 = textBox13.Text;
-    string text9 = textBox14.Text;
-    string str3 = "";
-    string str4 = "";
-    string str6 = !checkBox1.Checked ? "1b" : "0b";
-    string str7 = !checkBox2.Checked ? "0b" : "1b";
-    string str8 = !checkBox4.Checked ? "0b" : "1b";
-    string str9 = !checkBox11.Checked ? "0b" : "1b";
-    string str10 = !checkBox12.Checked ? "0b" : "1b";
-    string str11 = !radioButton1.Checked ? (!radioButton2.Checked ? (!radioButton3.Checked ? "4" : "3") : "2") : "1";
+    string killCount = textBox2.Text;
+    string proudSoul = textBox3.Text;
+    string repairCounter = textBox4.Text;
+    string baseAttackModifier = textBox5.Text;
+    string repairCost = textBox4.Text;
+    string attackAmplifier = textBox7.Text;
+    string customMaxDamage = textBox8.Text;
+    string name = textBox12.Text;
+    string item = textBox14.Text;
+    string isNoScabbard = !checkBox1.Checked ? "1b" : "0b";
+    string isBroken = !checkBox2.Checked ? "0b" : "1b";
+    string unbreakable = !checkBox4.Checked ? "0b" : "1b";
+    string active = !checkBox11.Checked ? "0b" : "1b";
+    string bewitched = !checkBox12.Checked ? "0b" : "1b";
+    string standbyRenderType = !radioButton1.Checked ? 
+      (!radioButton2.Checked ? (!radioButton3.Checked ? "4" : "3") : "2") : "1";
+    string currentItemName = BasicGridView.CurrentRow != null ? BasicGridView.CurrentRow.Cells[2].Value.ToString() : "";
+    string modelName = BasicGridView.CurrentRow != null ? BasicGridView.CurrentRow.Cells[3].Value.ToString() : "";
+    string textureName = BasicGridView.CurrentRow != null ? BasicGridView.CurrentRow.Cells[4].Value.ToString() : "";
+    string specialAttack = SaGridView.CurrentRow != null ? SaGridView.CurrentRow.Cells[2].Value.ToString() : "";
+    string specialEffect = "";
+    string enchantments = "";
     SetSlot();
-    string currentItemName = BasicGridView.CurrentRow.Cells[2].Value.ToString();
-    string modelName = BasicGridView.CurrentRow.Cells[3].Value.ToString();
-    string textureName = BasicGridView.CurrentRow.Cells[4].Value.ToString();
 
     if (currentItemName == "") {
-      MessageBox.Show("模型未选择或该模型无效，请选择一个合适的模型！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+      MessageBox.Show("模型未选择或该模型无效，请选择一个有效的模型！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Hand);
     } else {
-      string str15 = SaGridView.CurrentRow.Cells[2].Value.ToString();
       for (int i = 1; i < SeGridView.Rows.Count; ++i) {
-        if ((bool)SeGridView.Rows[i].Cells[0].EditedFormattedValue &&
-            (string)SeGridView.Rows[i].Cells[4].Value != null) {
-          string editedFormattedValue = (string)SeGridView.Rows[i].Cells[4].EditedFormattedValue;   
-          str3 = str3 + (string)SeGridView.Rows[i].Cells[3].EditedFormattedValue + ":" + editedFormattedValue + ",";
+        if ((bool)SeGridView.Rows[i].Cells[0].EditedFormattedValue 
+            && (string)SeGridView.Rows[i].Cells[4].Value != null) {
+          string seLevel = SeGridView.Rows[i].Cells[4].EditedFormattedValue.ToString();   
+          specialEffect = specialEffect + SeGridView.Rows[i].Cells[3].EditedFormattedValue + ":" + seLevel + ",";
         }
       }
 
       for (int i = 0; i < EnchantmentGrid.Rows.Count; ++i) {
-        if ((bool)EnchantmentGrid.Rows[i].Cells[0].EditedFormattedValue &&
-            (string)EnchantmentGrid.Rows[i].Cells[3].Value != null) {
-          string editedFormattedValue1 = EnchantmentGrid.Rows[i].Cells[2].EditedFormattedValue.ToString();   
-          string editedFormattedValue2 = EnchantmentGrid.Rows[i].Cells[3].EditedFormattedValue.ToString();   
-          str4 = str4 + "{id:" + editedFormattedValue1 + ",lvl:" + editedFormattedValue2 + "},";
+        if ((bool)EnchantmentGrid.Rows[i].Cells[0].EditedFormattedValue 
+            && (string)EnchantmentGrid.Rows[i].Cells[4].Value != null) {
+          string id = EnchantmentGrid.Rows[i].Cells[3].EditedFormattedValue.ToString();   
+          string lvl = EnchantmentGrid.Rows[i].Cells[4].EditedFormattedValue.ToString();   
+          enchantments = enchantments + "{id:" + id + ",lvl:" + lvl + "},";
         }
       }
 
-      if (str4.Length > 0) { 
-        str4 = str4.Substring(0, str4.Length - 1);
+      if (enchantments.Length > 0) { 
+        enchantments = enchantments.Substring(0, enchantments.Length - 1);
       }
 
-      if (str3.Length > 0) { 
-        str3 = str3.Substring(0, str3.Length - 1);
+      if (specialEffect.Length > 0) { 
+        specialEffect = specialEffect.Substring(0, specialEffect.Length - 1);
       }
 
       if (modelName.Length == 0) { 
         modelName = "blade";
       }
 
-      if (str2.Length == 0) { 
-        str2 = str1;
+      if (name.Length == 0 && BasicGridView.CurrentRow != null) { 
+        name = BasicGridView.CurrentRow.Cells[0].Value.ToString();
       }
 
-      string str16 = text1.Length > 0 ? ",killCount:" : "";
-      string str17 = text2.Length > 0 ? ",ProudSoul:" : "";
-      string str18 = text3.Length > 0 ? ",RepairCounter:" : "";
-      string str19 = str15.Length > 0 ? ",SpecialAttackType:" : "";
-      string str20 = str3.Length > 0 ? ",SB.SEffect:{" + str3 + "}" : "";
-      string str21 = text9.Length > 0 ? ",Item:" : "";
-      string str22 = str4.Length > 0 ? "ench:[" + str4 + "]," : "";
-      string str23 = text8.Length > 0 ? ",Lore:[\"" + text8 + "\"]" : "";
-      string str24 = text4.Length > 0 ? ",baseAttackModifier:" : "";
-      string str25 = text5.Length > 0 ? ",RepairCost:" : "";
-      string str26 = text6.Length > 0 ? ",AttackAmplifier:" : "";
-      string str27 = text7.Length > 0 ? ",CustomMaxDamage:" : "";
-      string str28 = !buttonCheck2.Checked ? SeparateSlot : AllSlot;
+      string itemText = item.Length > 0 ? ",Item:" : "";
+      string killCountText = killCount.Length > 0 ? ",killCount:" : "";
+      string proudSoulText = proudSoul.Length > 0 ? ",ProudSoul:" : "";
+      string repairCounterText = repairCounter.Length > 0 ? ",RepairCounter:" : "";
+      string specialAttackText = specialAttack.Length > 0 ? ",SpecialAttackType:" : "";
+      string specialEffectText = specialEffect.Length > 0 ? ",SB.SEffect:{" + specialEffect + "}" : "";
+      string enchantText = enchantments.Length > 0 ? "ench:[" + enchantments + "]," : "";
+      string loreText = textBox13.Text.Length > 0 ? ",Lore:[\"" + textBox13.Text + "\"]" : "";
+      string baseAttackModifierText = baseAttackModifier.Length > 0 ? ",baseAttackModifier:" : "";
+      string repairCostText = repairCost.Length > 0 ? ",RepairCost:" : "";
+      string attackAmplifierText = attackAmplifier.Length > 0 ? ",AttackAmplifier:" : "";
+      string customMaxDamageText = customMaxDamage.Length > 0 ? ",CustomMaxDamage:" : "";
+      string attributeModifiersText = !buttonCheck2.Checked ? SeparateSlot : AllSlot;
       int flags = enchantmentsFlag + attributesFlag + unbreakableFlag + canDestroyFlag + canPlaceOnFlag + othersFlag;
-      CommandOutputBox.Text = "/give @p flammpfeil.slashblade:slashblade 1 0 {StandbyRenderType:" + str11 + ",isNoScabbard:" + str6 +                
-                              ",isBroken:" + str7 + str16 + text1 + str17 + text2 + str18 + text3 + str24 + text4 + str25 + text5 + str26 + text6 + str27 + text7 +                
-                              ",CurrentItemName:\"" + currentItemName + "\",ModelName:\"" + modelName + "\",TextureName:\"" + textureName + "\"" + str19 + str15 + str20 +                
-                              ",SummonedSwordColor:" + rgb + ",isDefaultBewitched:" + str10 + ",IsBewitchedActived:" + str9 + str28 + str21 + text9 +
-                              ",Unbreakable:" + str8 + ",display:{Name:\"" + str2 + "\"" + str23 + "}," + str22 + "HideFlags:" + flags + "}";
+      CommandOutputBox.Text = "/give @p flammpfeil.slashblade:slashblade 1 0 {StandbyRenderType:" + standbyRenderType + 
+                              ",isNoScabbard:" + isNoScabbard + ",isBroken:" + isBroken + killCountText + killCount + 
+                              proudSoulText + proudSoul + repairCounterText + repairCounter + baseAttackModifierText + 
+                              baseAttackModifier + repairCostText + repairCost + attackAmplifierText + attackAmplifier + 
+                              customMaxDamageText + customMaxDamage + ",CurrentItemName:\"" + currentItemName + 
+                              "\",ModelName:\"" + modelName + "\",TextureName:\"" + textureName + (char)34 + 
+                              specialAttackText + specialAttack + specialEffectText + ",SummonedSwordColor:" + rgb + 
+                              ",isDefaultBewitched:" + bewitched + ",IsBewitchedActived:" + active + 
+                              attributeModifiersText + itemText + item + ",Unbreakable:" + unbreakable + 
+                              ",display:{Name:\"" + name + (char)34 + loreText + "}," + enchantText + "HideFlags:" + flags + "}";
     }
   }
 
   private static void InstructionsButtonClick(object sender, EventArgs e) => new Form3().Show();
 
-  private void label77_Click(object sender, EventArgs e) {
+  private void ColorLabelClick(object sender, EventArgs e) {
     ColorDialog colorDialog = new ColorDialog();
     int scrollPos = GetScrollPos(Handle, 1);
     if (colorDialog.ShowDialog() == DialogResult.OK) {
-      label77.BackColor = colorDialog.Color;
+      ColorLabel.BackColor = colorDialog.Color;
       VerticalScroll.Value = scrollPos;
     }
 
@@ -353,73 +292,62 @@ public partial class Form1 : Form {
   }
 
   private void SelectAllSeRadioButtonClick(object sender, EventArgs e) {
-    if (SeGridView.Rows.Count <= 0) {
-      return;
-    }
-
-    SeGridView.EndEdit();
-    foreach (DataGridViewRow row in SeGridView.Rows) {
-      row.Cells[0].Value = true;
+    if (SeGridView.Rows.Count > 0) {
+      SeGridView.EndEdit();
+      foreach (DataGridViewRow row in SeGridView.Rows) {
+        row.Cells[0].Value = true;
+      }
     }
   }
 
   private void SelectNoneSeRadioButtonClick(object sender, EventArgs e) {
-    if (SeGridView.Rows.Count <= 0) {
-      return;
-    }
-    SeGridView.EndEdit();
-    foreach (DataGridViewRow row in SeGridView.Rows) {
-      row.Cells[0].Value = false;
+    if (SeGridView.Rows.Count > 0) {
+      SeGridView.EndEdit();
+      foreach (DataGridViewRow row in SeGridView.Rows) {
+        row.Cells[0].Value = false;
+      }
     }
   }
 
   private void SelectInvertSeRadioButtonClick(object sender, EventArgs e) {
-    if (SeGridView.Rows.Count <= 0) {
-      return;
-    }
-
-    SeGridView.EndEdit();
-    foreach (DataGridViewRow row in SeGridView.Rows) {
-      row.Cells[0].Value = !true.Equals(row.Cells[0].Value);
+    if (SeGridView.Rows.Count > 0) {
+      SeGridView.EndEdit();
+      foreach (DataGridViewRow row in SeGridView.Rows) {
+        row.Cells[0].Value = !true.Equals(row.Cells[0].Value);
+      }
     }
   }
 
   private void SeGridViewEditingControlShowing(object sender, 
     DataGridViewEditingControlShowingEventArgs e) {
-    if (SeGridView.CurrentCellAddress.X != 4) {
-      return;
+    if (SeGridView.CurrentCellAddress.X == 4) {
+      CellEdit = (DataGridViewTextBoxEditingControl)e.Control;
+      CellEdit.SelectAll();
+      CellEdit.KeyPress += Cells_KeyPress;
     }
-
-    CellEdit = (DataGridViewTextBoxEditingControl)e.Control;
-    CellEdit.SelectAll();
-    CellEdit.KeyPress += Cells_KeyPress;
   }
 
   private void Cells_KeyPress(object sender, KeyPressEventArgs e) {
-    if (SeGridView.CurrentCellAddress.X != 4) {
-      return;
-    }
+    if (SeGridView.CurrentCellAddress.X == 4) {
+      if (e.KeyChar < '0' || e.KeyChar > '9') {
+        e.Handled = true;
+      }
 
-    if (e.KeyChar < '0' || e.KeyChar > '9') {
-      e.Handled = true;
-    }
-
-    if (e.KeyChar == '\b') {
-      e.Handled = false;
+      if (e.KeyChar == '\b') {
+        e.Handled = false;
+      }
     }
   }
 
   private void Cells_KeyPress2(object sender, KeyPressEventArgs e) {
-    if (EnchantmentGrid.CurrentCellAddress.X != 3) {
-      return;
-    }
+    if (EnchantmentGrid.CurrentCellAddress.X == 3) {
+      if (e.KeyChar < '0' || e.KeyChar > '9') {
+        e.Handled = true;
+      }
 
-    if (e.KeyChar < '0' || e.KeyChar > '9') {
-      e.Handled = true;
-    }
-
-    if (e.KeyChar == '\b') {
-      e.Handled = false;
+      if (e.KeyChar == '\b') {
+        e.Handled = false;
+      }
     }
   }
 
@@ -435,43 +363,47 @@ public partial class Form1 : Form {
 
   private void EnchantmentGridEditingControlShowing(object sender, 
     DataGridViewEditingControlShowingEventArgs e) {
-    if (EnchantmentGrid.CurrentCellAddress.X != 3) {
-      return;
+    if (EnchantmentGrid.CurrentCellAddress.X == 3) {
+      CellEdit = (DataGridViewTextBoxEditingControl)e.Control;
+      CellEdit.SelectAll();
+      CellEdit.KeyPress += Cells_KeyPress2;
     }
-
-    CellEdit = (DataGridViewTextBoxEditingControl)e.Control;
-    CellEdit.SelectAll();
-    CellEdit.KeyPress += Cells_KeyPress2;
   }
 
-  private void BatchEnchantButtonClick(object sender, EventArgs e) {
-    if (textBox69.Text.Length <= 0) {
-      return;
+  private void BatchSeButtonClick(object sender, EventArgs e) {
+    if (textBox69.Text.Length > 0) {
+      for (int i = 1; i < SeGridView.Rows.Count; i++) {
+        SeGridView.Rows[i].Cells[4].Value = textBox69.Text;
+      }
     }
-
-    for (int i = 1; i < SeGridView.Rows.Count; ++i) {
-      SeGridView.Rows[i].Cells[4].Value = textBox69.Text;
+  }
+  
+  private void BatchEnchantButtonClick(object sender, EventArgs e) {
+    if (textBox23.Text.Length > 0) {
+      for (int i = 0; i < EnchantmentGrid.Rows.Count; ++i) {
+        EnchantmentGrid.Rows[i].Cells[4].Value = textBox23.Text;
+      }
     }
   }
 
   private void BasicGridViewRowClickTick(object sender, EventArgs e) {
     if (BasicGridView.CurrentRow != null) {
-      Image errorImage = ModelPreviewPictureBox.ErrorImage;
+      Image errorImage = ModelPreviewBox.ErrorImage;
       string name = BasicGridView.CurrentRow.Cells[0].Value.ToString();
       string path = Environment.CurrentDirectory + "/images/" + name + ".png";
-      ModelPreviewPictureBox.Image = File.Exists(path) ? Image.FromFile(path) : errorImage;
+      ModelPreviewBox.Image = File.Exists(path) ? Image.FromFile(path) : errorImage;
     }
   }
 
-  private void timer3_Tick(object sender, EventArgs e) {
-    textBox21.Text = trackBar1.Value.ToString();
-    textBox20.Text = trackBar2.Value.ToString();
-    textBox19.Text = trackBar4.Value.ToString();
-    textBox18.Text = trackBar3.Value.ToString();
-    textBox17.Text = (trackBar8.Value / 10).ToString();
-    textBox16.Text = trackBar7.Value.ToString();
-    textBox15.Text = trackBar6.Value.ToString();
-    textBox22.Text = trackBar5.Value.ToString();
+  private void AttributesTrackBarTick(object sender, EventArgs e) {
+    AttackDamageBox.Text = trackBar1.Value.ToString();
+    AttackSpeedBox.Text = trackBar2.Value.ToString();
+    MaxHealthBox.Text = trackBar4.Value.ToString();
+    MovementSpeedBox.Text = trackBar3.Value.ToString();
+    KnockbackResistanceBox.Text = (trackBar8.Value / 10).ToString();
+    ArmorBox.Text = trackBar7.Value.ToString();
+    ArmorToughnessBox.Text = trackBar6.Value.ToString();
+    LuckBox.Text = trackBar5.Value.ToString();
     if (buttonCheck2.Checked) return;
     textBox32.Text = trackBar16.Value.ToString();
     textBox31.Text = trackBar15.Value.ToString();
@@ -516,34 +448,20 @@ public partial class Form1 : Form {
   }
 
   private void SelectAllEnchantmentRadioButtonClick(object sender, EventArgs e) {
-    if (EnchantmentGrid.Rows.Count <= 0) {
-      return;
-    }
-
-    EnchantmentGrid.EndEdit();
-    foreach (DataGridViewRow row in EnchantmentGrid.Rows) {
-      row.Cells[0].Value = true;
+    if (EnchantmentGrid.Rows.Count > 0) {
+      EnchantmentGrid.EndEdit();
+      foreach (DataGridViewRow row in EnchantmentGrid.Rows) {
+        row.Cells[0].Value = true;
+      }
     }
   }
 
   private void SelectNoneEnchantmentRadioButtonClick(object sender, EventArgs e) {
-    if (EnchantmentGrid.Rows.Count <= 0) {
-      return;
-    }
-
-    EnchantmentGrid.EndEdit();
-    foreach (DataGridViewRow row in EnchantmentGrid.Rows) {
-      row.Cells[0].Value = false;
-    }
-  }
-
-  private void BatchSpecialEffectButtonClick(object sender, EventArgs e) {
-    if (textBox23.Text.Length <= 0) {
-      return;
-    }
-
-    for (int i = 1; i < EnchantmentGrid.Rows.Count; ++i) {
-      EnchantmentGrid.Rows[i].Cells[3].Value = textBox23.Text;
+    if (EnchantmentGrid.Rows.Count > 0) {
+      EnchantmentGrid.EndEdit();
+      foreach (DataGridViewRow row in EnchantmentGrid.Rows) {
+        row.Cells[0].Value = false;
+      }
     }
   }
 
