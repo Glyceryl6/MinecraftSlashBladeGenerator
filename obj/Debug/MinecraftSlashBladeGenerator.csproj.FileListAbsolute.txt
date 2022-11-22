@@ -3,10 +3,10 @@ E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\bin\Debug\MinecraftSlash
 E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.csproj.AssemblyReference.cache
 E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.csproj.SuggestedBindingRedirects.cache
 E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.ButtonCheck.resources
-E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.Form1.resources
 E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.Form3.resources
 E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.Properties.Resources.resources
 E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.csproj.GenerateResource.cache
 E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.csproj.CoreCompileInputs.cache
 E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.exe
 E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.pdb
+E:\Microsoft Visual Studio\MinecraftSlashBladeGenerator\obj\Debug\MinecraftSlashBladeGenerator.MainForm.resources
