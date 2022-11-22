@@ -1,4 +1,5 @@
-无SE,,
+SE名称,来源模组,英文ID
+无SE,拔刀剑,
 凋零性,拔刀剑,WitherEdge
 载器,拔刀剑,Limitter
 兽性,拔刀剑,BlastEdge
@@ -15,6 +16,7 @@ HF量级,拔刀剑,HFCustom
 极致削弱,最后的太刀匠人,sap_slash
 「TLS」系统,最后的太刀匠人,technical_experimental_laser_system
 「极致妖力」,最后的太刀匠人,bewitched_sharpness
+鸣神,斩无不断,Narukami
 神狐祝福,狐月刀改,HS_potion
 幻影破魔矢,狐月刀改,HS_advance
 神佑,御神刀「神狐」,SEGodFoxProtection
@@ -51,10 +53,51 @@ HF量级,拔刀剑,HFCustom
 龙吟,仙剑阁,xingkongSE
 锋利,仙剑阁,modaoqianrenSE
 华光,仙剑阁,bairenSE
+迷彩,仙剑阁,colourSE
+斩马,仙剑阁,zanmadaoSE
+切断,仙剑阁,dianjuSE
+摇曳,仙剑阁,fusenSA
+新鱼,仙剑阁,xianyu2SA
+火矢,仙剑阁,yaoyanSE
+斩击,仙剑阁,duanzuiSE
+霞,仙剑阁,shemaoSE
+乱,仙剑阁,yanyueiSE
+缴械,仙剑阁,kanglongjianSE
+耀眼,仙剑阁,xinghuanSE
+区域囚笼,仙剑阁,sanSE
+时之陷阱,仙剑阁,xingsujieSE
+可以吃的,仙剑阁,fagunSE
+猛击,仙剑阁,qiaogunSE
+幻,仙剑阁,yinyiSE
+懿,仙剑阁,caiyiSE
+星河,仙剑阁,xingheSE
+太阳能,仙剑阁,dianzuanSE
 神劲 · 火矢,更多电力装置,CraftRevSE
 神劲 · 烈波,更多电力装置,BloodRevSE
 寸劲 · 箭矢,更多电力装置,KineticSE
 死劲 · 灭咒,更多电力装置,MrbladeSE
+打破一切,心之所向,Breakeverything
+续航塔,心之所向,charges
+寒剑,心之所向,Extremelycold
+神之刄,心之所向,GodsBlade
+永不作弊,心之所向,NeverCheat
+物理系,心之所向,PhysicalAttack
+物理系,心之所向,PhysicalAttackS
+永恒,心之所向,Remodeling
+极速,心之所向,sprint
+极限,心之所向,maximumDrive
+实力,心之所向,strength
+超级自我,心之所向,Superme
+圣光照耀,心之所向,Theholylightshines
+蹂躏,心之所向,ToRavage
+秋风袭来,心之所向,Wuqiufeng
+渴望,心之所向,Yearn
+「诚」,心之所向,cordial
+庄严哀悼,心之所向,SolemnLament
+绝对虚无,心之所向,VOID
+SlayAll,心之所向,VergilShadow
+虚空具现化,心之所向,void_ek
+黯淡神力,心之所向,DarkPower
 罪罚,炼金重铸计划-七宗罪,SEsaligia
 束缚,炼金重铸计划-七宗罪,SEacedia
 无餍,炼金重铸计划-七宗罪,SEavaritia
