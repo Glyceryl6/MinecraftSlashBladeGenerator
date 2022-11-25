@@ -83,12 +83,12 @@ public partial class MainForm : Form {
     string csvPath = Environment.CurrentDirectory + "/list/" + path;
     if (File.Exists(csvPath)) {
       string[] csvLines = File.ReadAllLines(csvPath, Encoding.Default);
-      dataGridView.Rows.Add(ReadFileLines(csvPath) - 1);
-      for (int i = 1; i < ReadFileLines(csvPath); i++) {
+      dataGridView.Rows.Add(ReadFileLines(csvPath));
+      for (int i = 0; i < ReadFileLines(csvPath); i++) {
         List<string> list = new List<string>(csvLines[i].Split(','));
-        dataGridView.Rows[i - 1].Cells[1].Value = list[0];
-        dataGridView.Rows[i - 1].Cells[2].Value = list[1];
-        dataGridView.Rows[i - 1].Cells[3].Value = list[2];
+        dataGridView.Rows[i].Cells[1].Value = list[0];
+        dataGridView.Rows[i].Cells[2].Value = list[1];
+        dataGridView.Rows[i].Cells[3].Value = list[2];
       }
     }
   }
@@ -188,7 +188,7 @@ public partial class MainForm : Form {
       if (textBox12.Text.Length == 0 && BasicGridView.CurrentRow != null) { 
         name = BasicGridView.CurrentRow.Cells[0].Value.ToString();
       }
-      //将内容整合成最后的命令并导出
+      //将内容整合成最后的命令并输出
       string itemText = textBox14.Text.Length > 0 ? ",Item:" + textBox14.Text : "";
       string killCountText = textBox2.Text.Length > 0 ? ",killCount:" + textBox2.Text : "";
       string proudSoulText = textBox3.Text.Length > 0 ? ",ProudSoul:" + textBox3.Text : "";
@@ -285,10 +285,12 @@ public partial class MainForm : Form {
   }
 
   private void timer1_Tick(object sender, EventArgs e) {
+    if (ClientSize.Width < 944 || ClientSize.Height < 631) {
+      ClientSize = new Size(944, 631);
+    }
     if (SeGridView.CurrentRow != null) {
       SeGridView.CurrentRow.Cells[4].ReadOnly = !(bool)SeGridView.CurrentRow.Cells[0].EditedFormattedValue;
     }
-
     if (EnchantmentGrid.CurrentRow != null) {
       EnchantmentGrid.CurrentRow.Cells[4].ReadOnly = !(bool)EnchantmentGrid.CurrentRow.Cells[0].EditedFormattedValue;
     }

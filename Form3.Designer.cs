@@ -22,8 +22,8 @@ partial class Form3 {
     #region Windows Form Designer generated code
 
     private void InitializeComponent() { 
-        components = new Container();
         ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Form3)); 
+        components = new Container();
         label81 = new Label();
         label1 = new Label();
         label2 = new Label();
@@ -63,7 +63,6 @@ partial class Form3 {
         label3.Text = componentResourceManager.GetString("label3.Text");
         AutoScaleDimensions = new SizeF(6f, 12f);
         AutoScaleMode = AutoScaleMode.Font;
-        AutoScroll = true;
         BackColor = SystemColors.Control;
         ClientSize = new Size(734, 424);
         Controls.Add(label3);

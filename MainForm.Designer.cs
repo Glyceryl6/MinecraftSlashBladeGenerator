@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace MinecraftSlashBladeGenerator; 
 
@@ -216,7 +217,6 @@ partial class MainForm {
     protected Timer timer1;
     protected Timer timer2;
     protected Timer timer3;
-    protected Timer timer4;
     public TrackBar trackBar1;
     public TrackBar trackBar10;
     public TrackBar trackBar11;
@@ -541,7 +541,6 @@ partial class MainForm {
         timer2 = new Timer(components);
         timer3 = new Timer(components);
         BatchSeButton = new Button();
-        timer4 = new Timer(components);
         CarryPartsGroupBox.SuspendLayout();
         BaseSettingsGroupBox.SuspendLayout();
         ModelPreviewGroupBox.SuspendLayout();
@@ -2733,10 +2732,8 @@ partial class MainForm {
         BatchSeButton.Text = "批量赋值";
         BatchSeButton.UseVisualStyleBackColor = true;
         BatchSeButton.Click += BatchSeButtonClick;
-        timer4.Interval = 10;
         AutoScaleDimensions = new SizeF(6f, 12f);
         AutoScaleMode = AutoScaleMode.None;
-        AutoSizeMode = AutoSizeMode.GrowAndShrink;
         ClientSize = new Size(944, 631);
         Controls.Add(AddEnchantmentGroupBox);
         Controls.Add(AttributeSettingsGroupBox);
@@ -2754,6 +2751,7 @@ partial class MainForm {
         Controls.Add(label16);
         Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
         Name = nameof(MainForm);
+        FormBorderStyle = FormBorderStyle.FixedSingle;
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Minecraft 自定义拔刀剑代码生成器";
         Load += Form1_Load;
